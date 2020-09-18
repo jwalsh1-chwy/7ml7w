@@ -1,7 +1,3 @@
-* Setup
-
-https://repl.it/languages
-
 * Lua
 
 - https://www.lua.org/
@@ -26,6 +22,8 @@ lua -e 'print(_VERSION)'
 
 * Factor
 
+- https://factorcode.org/
+
 #+begin_src
 brew cask install factor
 #+end_src
@@ -42,8 +40,11 @@ brew cask install factor
 - https://factorcode.org/
 
 ** Day 1: Stack On, Stack Off
+
 ** Day 2: Painting the Fence
+
 ** Day 3: Balancing on a Boat
+
 ** Wrapping Up Factor
 
 * Elm
@@ -55,13 +56,23 @@ brew cask install factor
 brew install elm
 #+end_src
 
+#+begin_src sh
+elm  --version
+#+end_src
+
+#+RESULTS:
+: 0.19.1
+
 #+begin_src elisp
   (package-install 'elm-mode)
 #+end_src
 
 ** Day 1: Handling the Basics
+
 ** Day 2: Taming Callbacks excerpt
+
 ** Day 3: It’s All a Game
+
 ** Wrapping Up Elm
 
 * Elixir
@@ -69,9 +80,20 @@ brew install elm
 - https://elixir-lang.org/
 - https://repl.it/languages/elixir
 
+#+begin_src sh
+ brew install elixir
+#+end_src
+
+#+begin_src elisp
+  (package-install 'elixir-mode)
+#+end_src
+
 ** Day 1: Laying a Great Foundation excerpt
+
 ** Day 2: Controlling Mutations
+
 ** Day 3: Spawning and Respawning
+
 ** Wrapping Up Elixir
 
 * Julia
@@ -83,19 +105,38 @@ brew install elm
 brew cask install julia
 #+end_src
 
+
+#+begin_src sh
+/usr/local/bin/julia --version
+#+end_src
+
+#+RESULTS:
+: julia version 1.5.1
+
 * miniKanren
 
 - https://repl.it/languages/scheme
+- http://io.livecode.ch/learn/webyrd/webmk
+- https://github.com/pythological/kanren
 
 #+begin_src sh
-brew cask install julia
+brew install guile
+#+end_src
+
+#+begin_src elisp
+  (package-install 'paredit)
+  (package-install 'geiser)
+
 #+end_src
 
 ** Day 1: Unified Theories of Code
+
 ** Day 2: Mixing the Logical and Functional
+
 ** Day 3: Writing Stories with Logic excerpt
+
 ** Wrapping Up miniKanren
 
 * Idris
 
-https://www.idris-lang.org/
+- https://www.idris-lang.org/
