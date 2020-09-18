@@ -1,0 +1,22 @@
+* Setup
+
+#+begin_src sh
+luarocks install luarepl
+
+#+end_src
+
+#+begin_src lua
+
+#+end_src
+* Getting Started
+
+#+begin_src sh
+lua -e 'print(math.sin(1))'
+#+end_src
+
+#+RESULTS:
+: 0.8414709848079
+
+* Documentation
+
+- http://www.lua.org/manual/5.1/manual.html#pdf-for

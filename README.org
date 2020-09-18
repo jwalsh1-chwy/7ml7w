@@ -1,0 +1,101 @@
+* Setup
+
+https://repl.it/languages
+
+* Lua
+
+- https://www.lua.org/
+- https://repl.it/languages/lua
+
+#+begin_src sh
+brew install lua luarocks
+luarocks install luarepl
+#+end_src
+
+#+begin_src sh
+lua -e 'print(_VERSION)'
+#+end_src
+
+#+RESULTS:
+: Lua 5.3
+
+#+begin_src elisp
+  (package-install 'lua-mode)
+  (package-install 'luarocks)
+#+end_src
+
+* Factor
+
+#+begin_src
+brew cask install factor
+#+end_src
+
+#+begin_src sh
+/Applications/factor/factor --version
+#+end_src
+
+#+RESULTS:
+| Factor | 0.98       | x86.64 | (1889,     | heads/master-7999e72aec, | Jul  |    30 |               2018 | 12:10:02) |        |
+| [Clang | (GCC       |  4.2.1 | Compatible | Apple                    | LLVM | 7.3.0 | (clang-703.0.29))] |        on | macosx |
+| IN:    | scratchpad |        |            |                          |      |       |                    |           |        |
+
+- https://factorcode.org/
+
+** Day 1: Stack On, Stack Off
+** Day 2: Painting the Fence
+** Day 3: Balancing on a Boat
+** Wrapping Up Factor
+
+* Elm
+
+- https://elm-lang.org/
+- https://guide.elm-lang.org/install/elm.html
+
+#+begin_src sh
+brew install elm
+#+end_src
+
+#+begin_src elisp
+  (package-install 'elm-mode)
+#+end_src
+
+** Day 1: Handling the Basics
+** Day 2: Taming Callbacks excerpt
+** Day 3: It’s All a Game
+** Wrapping Up Elm
+
+* Elixir
+
+- https://elixir-lang.org/
+- https://repl.it/languages/elixir
+
+** Day 1: Laying a Great Foundation excerpt
+** Day 2: Controlling Mutations
+** Day 3: Spawning and Respawning
+** Wrapping Up Elixir
+
+* Julia
+
+- https://julialang.org/
+- https://repl.it/languages/julia
+
+#+begin_src sh
+brew cask install julia
+#+end_src
+
+* miniKanren
+
+- https://repl.it/languages/scheme
+
+#+begin_src sh
+brew cask install julia
+#+end_src
+
+** Day 1: Unified Theories of Code
+** Day 2: Mixing the Logical and Functional
+** Day 3: Writing Stories with Logic excerpt
+** Wrapping Up miniKanren
+
+* Idris
+
+https://www.idris-lang.org/
