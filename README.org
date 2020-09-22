@@ -1,3 +1,13 @@
+* Background
+
+#+begin_src bibtex
+@inproceedings{Daoud2014SevenML,
+  title={Seven More Languages in Seven Weeks: Languages That Are Shaping the Future},
+  author={F. Daoud and Ian Dees and Bruce A. Tate and J. Moffitt},
+  year={2014}
+}
+#+end_src
+
 * Lua
 
 - https://www.lua.org/
@@ -20,9 +30,10 @@ lua -e 'print(_VERSION)'
   (package-install 'luarocks)
 #+end_src
 
-* Factor
+* Factor                                                              :forth:
 
 - https://factorcode.org/
+- https://docs.factorcode.org/content/article-first-program-test.html
 
 #+begin_src
 brew cask install factor
@@ -47,10 +58,11 @@ brew cask install factor
 
 ** Wrapping Up Factor
 
-* Elm
+* Elm                                                               :haskell:
 
 - https://elm-lang.org/
 - https://guide.elm-lang.org/install/elm.html
+- http://media.pragprog.com/titles/7lang/elm.pdf
 
 #+begin_src sh
 brew install elm
@@ -75,14 +87,23 @@ elm  --version
 
 ** Wrapping Up Elm
 
-* Elixir
+* Elixir                                                             :erlang:
 
 - https://elixir-lang.org/
 - https://repl.it/languages/elixir
+- https://elm-lang.org/try
 
 #+begin_src sh
  brew install elixir
 #+end_src
+
+#+begin_src sh
+elixir -v
+#+end_src
+
+#+RESULTS:
+| Erlang/OTP |     23 | [erts-11.0.4] | [source] | [64-bit]   | [smp:16:16] | [ds:16:16:10] | [async-threads:1] | [hipe] | [dtrace] |
+| Elixir     | 1.10.4 | (compiled     | with     | Erlang/OTP |         23) |               |                   |        |          |
 
 #+begin_src elisp
   (package-install 'elixir-mode)
@@ -113,7 +134,7 @@ brew cask install julia
 #+RESULTS:
 : julia version 1.5.1
 
-* miniKanren
+* miniKanren                                                  :prolog:scheme:
 
 - https://repl.it/languages/scheme
 - http://io.livecode.ch/learn/webyrd/webmk

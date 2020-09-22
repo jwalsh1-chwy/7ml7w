@@ -8,6 +8,20 @@ luarocks install luarepl
 #+begin_src lua
 
 #+end_src
+* Considerations
+
+- typical action like iterating through a sequence seemed like more initialization work than would generally be expected
+
+- not being able to return from an if seemed odd
+
+- the reduce example seemed useful
+
+- the use of pairs and tables seems worthwhile to illustrate
+
+- tables are dicts (Python) or hashes (Ruby)
+
+- pairs(table) is an iterator wrapping a for loop
+
 * Getting Started
 
 #+begin_src sh
