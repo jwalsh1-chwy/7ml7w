@@ -1,3 +1,18 @@
+* Summary
+
+How do you create an object-oriented programming language with just
+dictionaries and a simple linking mechanism.
+
+* Exercises
+
+** Looping
+
+** Inheritance
+
+** Memoizing
+
+** Generators
+
 * Setup
 
 #+begin_src sh
