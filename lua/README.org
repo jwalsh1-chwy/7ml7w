@@ -16,6 +16,7 @@ dictionaries and a simple linking mechanism.
 * Setup
 
 #+begin_src sh
+brew install lua cmake rtmidi
 luarocks install luarepl
 
 #+end_src

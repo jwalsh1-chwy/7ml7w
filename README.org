@@ -14,7 +14,7 @@
 - https://repl.it/languages/lua
 
 #+begin_src sh
-brew install lua luarocks
+brew install lua cmake rtmidi luarocks
 luarocks install luarepl
 #+end_src
 

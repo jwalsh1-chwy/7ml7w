@@ -5,3 +5,7 @@ function table_to_string(t)
    end
    return table.concat(result, "|n")
 end
+
+return {
+   table_to_string: table_to_string
+}
