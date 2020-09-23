@@ -30,7 +30,7 @@ lua -e 'print(_VERSION)'
   (package-install 'luarocks)
 #+end_src
 
-* Factor                                                              :forth:
+* Factor                                                        :forth:jvm:c:
 
 - https://factorcode.org/
 - https://docs.factorcode.org/content/article-first-program-test.html
@@ -134,7 +134,7 @@ brew cask install julia
 #+RESULTS:
 : julia version 1.5.1
 
-* miniKanren                                                  :prolog:scheme:
+* miniKanren                                      :prolog:scheme:clojure:jvm:
 
 - https://repl.it/languages/scheme
 - http://io.livecode.ch/learn/webyrd/webmk
