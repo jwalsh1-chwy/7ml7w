@@ -24,7 +24,7 @@ end
 
 print(note("C", 1))
 
-function dur(value)
+function duration(value)
    local tempo = 100
    local quarter = 60 / tempo
    local durations = {
@@ -37,7 +37,7 @@ function dur(value)
    return durations[value] * quarter
 end
 
--- print(duration("ed"))
+print(duration("ed"))
 
 local function parse_note()
 
