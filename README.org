@@ -8,7 +8,7 @@
 }
 #+end_src
 
-* Lua
+* Lua 5.3.5                                                             :tcl:
 
 - https://www.lua.org/
 - https://repl.it/languages/lua
@@ -36,7 +36,7 @@ lua -e 'print(_VERSION)'
 
 ** TODO Day 3: Lua and the World
 
-* Factor                                                        :forth:jvm:c:
+* Factor 0.98                                                   :forth:jvm:c:
 
 - https://factorcode.org/
 - https://docs.factorcode.org/content/article-first-program-test.html
@@ -71,7 +71,7 @@ USE: editor.emacs
 
 ** TODO Day 3: Balancing on a Boat
 
-* Elm                                                         :haskell:ocaml:
+* Elm 0.19.1                                                  :haskell:ocaml:
 
 - https://elm-lang.org/
 - https://guide.elm-lang.org/install/elm.html
@@ -98,7 +98,7 @@ elm  --version
 
 ** TODO Day 3: It’s All a Game
 
-* Elixir                                           :erlang:ruby:lisp:clojure:
+* Elixir 1.10.4                                    :erlang:ruby:lisp:clojure:
 
 - https://elixir-lang.org/
 - https://repl.it/languages/elixir
@@ -126,7 +126,7 @@ elixir -v
 
 ** TODO Day 3: Spawning and Respawning
 
-* Julia                                                            :r:python:
+* Julia 1.5.1                                                           :r:python:
 
 - https://julialang.org/
 - https://repl.it/languages/julia
@@ -149,7 +149,7 @@ brew cask install julia
 
 ** TODO Day 3: Become One with Julia
 
-* miniKanren                                      :prolog:scheme:clojure:jvm:
+* core.logic 1.0.0                                :prolog:scheme:clojure:jvm:
 
 - https://repl.it/languages/scheme
 - http://io.livecode.ch/learn/webyrd/webmk
@@ -171,7 +171,7 @@ brew install guile
 
 ** TODO Day 3: Writing Stories with Logic excerpt
 
-* Idris                                                             :haskell:
+* Idris 1.3.3                                                            :haskell:
 
 - https://www.idris-lang.org/
 
