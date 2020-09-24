@@ -30,6 +30,12 @@ lua -e 'print(_VERSION)'
   (package-install 'luarocks)
 #+end_src
 
+** DONE Day 1: The Call to Adventure
+
+** DONE Day 2: Tables All the Way Down
+
+** TODO Day 3: Lua and the World
+
 * Factor                                                        :forth:jvm:c:
 
 - https://factorcode.org/
@@ -50,15 +56,24 @@ brew cask install factor
 
 - https://factorcode.org/
 
-** Day 1: Stack On, Stack Off
+#+begin_src elisp
+(server-start)
+#+end_src
 
-** Day 2: Painting the Fence
+#+begin_src factor
+USE: editor.emacs
+\ at edit
+#+end_src
 
-** Day 3: Balancing on a Boat
+** TODO Day 1: Stack On, Stack Off
+
+** TODO Day 2: Painting the Fence
+
+** TODO Day 3: Balancing on a Boat
 
 ** Wrapping Up Factor
 
-* Elm                                                               :haskell:
+* Elm                                                         :haskell:ocaml:
 
 - https://elm-lang.org/
 - https://guide.elm-lang.org/install/elm.html
@@ -79,15 +94,15 @@ elm  --version
   (package-install 'elm-mode)
 #+end_src
 
-** Day 1: Handling the Basics
+** TODO Day 1: Handling the Basics
 
-** Day 2: Taming Callbacks excerpt
+** TODO Day 2: Taming Callbacks excerpt
 
-** Day 3: It’s All a Game
+** TODO Day 3: It’s All a Game
 
 ** Wrapping Up Elm
 
-* Elixir                                                             :erlang:
+* Elixir                                           :erlang:ruby:lisp:clojure:
 
 - https://elixir-lang.org/
 - https://repl.it/languages/elixir
@@ -109,15 +124,15 @@ elixir -v
   (package-install 'elixir-mode)
 #+end_src
 
-** Day 1: Laying a Great Foundation excerpt
+** TODO Day 1: Laying a Great Foundation
 
-** Day 2: Controlling Mutations
+** TODO Day 2: Controlling Mutations
 
-** Day 3: Spawning and Respawning
+** TODO Day 3: Spawning and Respawning
 
 ** Wrapping Up Elixir
 
-* Julia
+* Julia                                                            :r:python:
 
 - https://julialang.org/
 - https://repl.it/languages/julia
@@ -133,6 +148,12 @@ brew cask install julia
 
 #+RESULTS:
 : julia version 1.5.1
+
+** TODO Day 1: Resistance is Futile
+
+** TODO Day 2: Getting Assimilated
+
+** TODO Day 3: Become One with Julia
 
 * miniKanren                                      :prolog:scheme:clojure:jvm:
 
@@ -150,11 +171,11 @@ brew install guile
 
 #+end_src
 
-** Day 1: Unified Theories of Code
+** TODO Day 1: Unified Theories of Code
 
-** Day 2: Mixing the Logical and Functional
+** TODO Day 2: Mixing the Logical and Functional
 
-** Day 3: Writing Stories with Logic excerpt
+** TODO Day 3: Writing Stories with Logic excerpt
 
 ** Wrapping Up miniKanren
 

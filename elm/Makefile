@@ -1,0 +1,2 @@
+repl:
+	elm repl
