@@ -3,4 +3,4 @@ repl:
 
 init:
 	brew install lua cmake rtmidi
-	luarocks install luarepl
+	luarocks install luarepl busted

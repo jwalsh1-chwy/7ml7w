@@ -5,11 +5,15 @@ extern "C"
 #include "/usr/local/include/lua/lualib.h"
 }
 
+#include <stdio.h>
+
 #include "/usr/local/include/RtMidi.h"
 static RtMidiOut midi;
 
 int midi_send(lua_State* L)
 {
+  printf("midi_send");
+
   double status  = lua_tonumber(L, -3);
   double data1   = lua_tonumber(L, -2);
   double data2   = lua_tonumber(L, -1);
@@ -30,6 +34,8 @@ int main(int argc, const char* argv[])
   unsigned int ports = midi.getPortCount();
   if (ports < 1) { return -1; }
 
+  printf("LuaPlay");
+
   midi.openPort(0);
 
   lua_State* L = luaL_newstate();
@@ -38,7 +44,7 @@ int main(int argc, const char* argv[])
   lua_pushcfunction(L, midi_send);
   lua_setglobal(L, "midi_send");
 
-  // luaL_dostring(L, "print('Getting ready to play')");
+  luaL_dostring(L, "print('Getting ready to play')");
 
   luaL_dofile(L, argv[1]);
 
