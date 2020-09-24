@@ -1,0 +1,2 @@
+repl:
+	make -C logical

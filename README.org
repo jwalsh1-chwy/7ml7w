@@ -71,8 +71,6 @@ USE: editor.emacs
 
 ** TODO Day 3: Balancing on a Boat
 
-** Wrapping Up Factor
-
 * Elm                                                         :haskell:ocaml:
 
 - https://elm-lang.org/
@@ -99,8 +97,6 @@ elm  --version
 ** TODO Day 2: Taming Callbacks excerpt
 
 ** TODO Day 3: It’s All a Game
-
-** Wrapping Up Elm
 
 * Elixir                                           :erlang:ruby:lisp:clojure:
 
@@ -129,8 +125,6 @@ elixir -v
 ** TODO Day 2: Controlling Mutations
 
 ** TODO Day 3: Spawning and Respawning
-
-** Wrapping Up Elixir
 
 * Julia                                                            :r:python:
 
@@ -177,8 +171,10 @@ brew install guile
 
 ** TODO Day 3: Writing Stories with Logic excerpt
 
-** Wrapping Up miniKanren
-
-* Idris
+* Idris                                                             :haskell:
 
 - https://www.idris-lang.org/
+
+** TODO Day 1: The Basics
+** TODO Day 2: Getting Started with Dependent Types
+** TODO Day 3: Dependent Types in Action
