@@ -1,6 +1,7 @@
 (ns logical.core
   (:refer-clojure :exclude [==]) ;; core.logic defines :== as well
   (:require [clojure.string :as s]
+            [clojure.set]
             [clojure.core.logic :refer :all]
             [clojure.core.logic.fd :as fd]))
 
@@ -10,6 +11,39 @@
   (println "miniKanren"))
 
 (run* [q] (== q 1))
+
+(def pets-dogs
+  #{
+    {:name "Bella", :parent "acaruso"}
+    {:name "Charlie", :parent "bwu"}
+    {:name "Luna", :parent "bwu"}
+    {:name "Lucy", :parent "chughes"}
+    {:name "Max", :parent "cprinos"}
+    {:name "Bailey", :parent "ddean"}
+    {:name "Cooper", :parent "ddean"}
+    {:name "Daisy", :parent "gclements"}
+    {:name "Sadie", :parent "gclements"}
+    {:name "Molly", :parent "jhodge"}
+    {:name "Buddy", :parent "jvincelette"}
+    {:name "Lola", :parent "jwalsh"}
+    {:name "Stella", :parent "kkumar"}
+    {:name "Tucker", :parent "ksullivan"}
+    {:name "Bentley", :parent "mveljkovic"}
+    {:name "Zoey", :parent "nfoudi"}
+    {:name "Harley", :parent "rhaines"}
+    {:name "Spot", :parent "xtao"}
+    })
+
+
+(def pets-cats
+  #{
+    {:name "Garfield", :parent "jwalsh"}
+    })
+
+
+(def blank-board
+  (into [] (take 81 (repeat 0))))
+
 
 ;; https://gist.github.com/orb/5884956
 (defn init-board [vars puzzle]
