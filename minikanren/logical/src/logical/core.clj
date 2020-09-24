@@ -1,7 +1,13 @@
 (ns logical.core
   (:gen-class))
 
+(require '[clojure.core.logic :as logic]
+         '[clojure.core.logic.fd :as fd])
+
+
 (defn -main
-  "I don't do a whole lot ... yet."
+  "miniKanren example"
   [& args]
-  (println "Hello, World!"))
+  (println "miniKanren"))
+
+(logic/run* [q] (== q 1))
