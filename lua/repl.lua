@@ -7,3 +7,11 @@ function table_to_string(t)
    end
    return table.concat(result, "|n")
 end
+
+
+function print_array(a)
+   local t = a[1] and a or {}
+   for i, v in pairs(t) do
+      print(v)
+   end
+end

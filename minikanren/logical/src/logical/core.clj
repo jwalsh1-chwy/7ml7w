@@ -51,6 +51,13 @@
       (== (cons x (cons y ())) q)))
 
   (run* [q]
+    (fresh [x y]
+      (conde
+       ((== "split" x) (== "pea" y))
+       ((== "navy" x) (== "bean" y)))
+      (== [x y] q)))
+
+  (run* [q]
     (firsto (seq "acorn") q))
 
   (run 1 [q]

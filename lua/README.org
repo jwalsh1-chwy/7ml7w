@@ -50,3 +50,31 @@ lua -e 'print(math.sin(1))'
 * Documentation
 
 - http://www.lua.org/manual/5.1/manual.html#pdf-for
+* Tasks
+
+** Bytecode
+
+
+#+begin_src sh
+luajit -bl ast-example.lua
+#+end_src
+
+#+begin_src asm
+-- BYTECODE -- ast-example.lua:1-1
+0001    RET1     0   2
+
+-- BYTECODE -- ast-example.lua:0-2
+0001    TNEW     0   0
+0002    TSETS    0   0   0  ; "a"
+0003    TGETS    1   0   0  ; "a"
+0004    FNEW     2   1      ; ast-example.lua:1
+0005    TSETS    2   1   0  ; "a"
+0006    GGET     1   2      ; "print"
+0007    TGETS    2   0   0  ; "a"
+0008    KSTR     3   0      ; "a"
+0009    CALL     2   2   2
+0010    LEN      3   0
+0011    CALL     1   1   3
+0012    RET0     0   1
+
+#+end_src
