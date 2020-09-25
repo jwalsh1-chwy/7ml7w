@@ -13,13 +13,18 @@
  (
   (run* [q] (== q 1))
 
+  (run* [q] (== 2 1))
+
   (run* [q] (== q "corn"))
 
   (run* [q]
-    (let [x false]
+    (let [x "apple"]
       (== q x)))
 
-  (run* [q] (== 2 1))
+  (run* [q]
+    (fresh [x]
+      (== x "peach")
+      (== q x)))
 
   (run* [q]
     (fd/in q (fd/interval 0 10))
@@ -27,10 +32,9 @@
 
   (run* [q]
     (fresh [x y]
-      (conde
-       ((== "split" x) (== "pea" y))
-       ((== "navy" x) (== "bean" y)))
-      (== (cons x (cons y ())) q)))
+      (== q [x y])
+      (fd/in x y (fd/interval 8 10))
+      (== q [x y])))
 
   (run* [q]
     (fresh [x y]
@@ -40,11 +44,25 @@
       (fd/* x y 64)))
 
   (run* [q]
+    (fresh [x y]
+      (conde
+       ((== "split" x) (== "pea" y))
+       ((== "navy" x) (== "bean" y)))
+      (== (cons x (cons y ())) q)))
+
+  (run* [q]
     (firsto (seq "acorn") q))
 
   (run 1 [q]
     (fresh [x y]
       (== q (cons x (cons y "grape")))))
+
+  (defn twinso [s]
+    (fresh [x]
+      (== [x x] s)))
+
+  (run* [q]
+    (twinso [q "tofu"]))
 
   ))
 
