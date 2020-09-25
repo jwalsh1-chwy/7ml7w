@@ -10,43 +10,43 @@
   (println "miniKanren"))
 
 (quote
+ (
+  (run* [q] (== q 1))
 
- (run* [q] (== q 1))
+  (run* [q] (== q "corn"))
 
- (run* [q] (== q "corn"))
+  (run* [q]
+    (let [x false]
+      (== q x)))
 
- (run* [q]
-   (let [x false]
-     (== q x)))
+  (run* [q] (== 2 1))
 
- (run* [q] (== 2 1))
+  (run* [q]
+    (fd/in q (fd/interval 0 10))
+    (fd/== 2 q))
 
- (run* [q]
-   (fd/in q (fd/interval 0 10))
-   (fd/== 2 q))
+  (run* [q]
+    (fresh [x y]
+      (conde
+       ((== "split" x) (== "pea" y))
+       ((== "navy" x) (== "bean" y)))
+      (== (cons x (cons y ())) q)))
 
- (run* [q]
-   (fresh [x y]
-     (conde
-      ((== "split" x) (== "pea" y))
-      ((== "navy" x) (== "bean" y)))
-     (== (cons x (cons y ())) q)))
+  (run* [q]
+    (fresh [x y]
+      (== q [x y])
+      (fd/in x y (fd/interval 0 100))
+      (fd/<= x y)
+      (fd/* x y 64)))
 
- (run* [q]
-   (fresh [x y]
-     (== q [x y])
-     (fd/in x y (fd/interval 0 100))
-     (fd/<= x y)
-     (fd/* x y 64)))
+  (run* [q]
+    (firsto (seq "acorn") q))
 
- (run* [q]
-   (firsto (seq "acorn") q))
+  (run 1 [q]
+    (fresh [x y]
+      (== q (cons x (cons y "grape")))))
 
- (run 1 [q]
-   (fresh [x y]
-     (== q (cons x (cons y "grape")))))
-
-)
+  ))
 
 (def pets-dogs
   #{
@@ -176,4 +176,4 @@
   (count (solve puzzle3))
   8
 
-)
+  )
