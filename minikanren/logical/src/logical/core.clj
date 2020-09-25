@@ -71,6 +71,9 @@
   (run* [q]
     (twinso [q "tofu"]))
 
+  (run 5 [q]
+    (firsto q "a"))
+
   ))
 
 (def pets-dogs

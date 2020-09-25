@@ -78,3 +78,181 @@ luajit -bl ast-example.lua
 0012    RET0     0   1
 
 #+end_src
+
+
+
+** AST
+
+#+begin_src lua
+local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}
+#+end_src
+
+
+#+begin_src json
+{
+  "type": "Chunk",
+  "body": [
+    {
+      "type": "LocalStatement",
+      "variables": [
+        {
+          "type": "Identifier",
+          "name": "a"
+        }
+      ],
+      "init": [
+        {
+          "type": "TableConstructorExpression",
+          "fields": []
+        }
+      ]
+    },
+    {
+      "type": "AssignmentStatement",
+      "variables": [
+        {
+          "type": "MemberExpression",
+          "indexer": ".",
+          "identifier": {
+            "type": "Identifier",
+            "name": "b"
+          },
+          "base": {
+            "type": "Identifier",
+            "name": "a"
+          }
+        }
+      ],
+      "init": [
+        {
+          "type": "Identifier",
+          "name": "a"
+        }
+      ]
+    },
+    {
+      "type": "AssignmentStatement",
+      "variables": [
+        {
+          "type": "IndexExpression",
+          "base": {
+            "type": "MemberExpression",
+            "indexer": ".",
+            "identifier": {
+              "type": "Identifier",
+              "name": "b"
+            },
+            "base": {
+              "type": "Identifier",
+              "name": "a"
+            }
+          },
+          "index": {
+            "type": "StringLiteral",
+            "value": null,
+            "raw": "\"c\""
+          }
+        },
+        {
+          "type": "Identifier",
+          "name": "d"
+        }
+      ],
+      "init": [
+        {
+          "type": "FunctionDeclaration",
+          "identifier": null,
+          "isLocal": false,
+          "parameters": [
+            {
+              "type": "Identifier",
+              "name": "e"
+            }
+          ],
+          "body": [
+            {
+              "type": "ReturnStatement",
+              "arguments": [
+                {
+                  "type": "Identifier",
+                  "name": "e"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "StringLiteral",
+          "value": null,
+          "raw": "\"f\""
+        }
+      ]
+    },
+    {
+      "type": "CallStatement",
+      "expression": {
+        "type": "CallExpression",
+        "base": {
+          "type": "Identifier",
+          "name": "print"
+        },
+        "arguments": [
+          {
+            "type": "CallExpression",
+            "base": {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "b"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "a"
+              }
+            },
+            "arguments": [
+              {
+                "type": "StringLiteral",
+                "value": null,
+                "raw": "\"g\""
+              }
+            ]
+          },
+          {
+            "type": "UnaryExpression",
+            "operator": "#",
+            "argument": {
+              "type": "Identifier",
+              "name": "a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ReturnStatement",
+      "arguments": [
+        {
+          "type": "TableConstructorExpression",
+          "fields": [
+            {
+              "type": "TableKeyString",
+              "key": {
+                "type": "Identifier",
+                "name": "a"
+              },
+              "value": {
+                "type": "Identifier",
+                "name": "a"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "comments": []
+}
+
+#+end_src
