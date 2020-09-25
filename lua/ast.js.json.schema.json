@@ -1,0 +1,1257 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "type": "Chunk",
+      "body": [
+        {
+          "type": "LocalStatement",
+          "variables": [
+            {
+              "type": "Identifier",
+              "name": "a"
+            }
+          ],
+          "init": [
+            {
+              "type": "TableConstructorExpression",
+              "fields": []
+            }
+          ]
+        },
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "MemberExpression",
+              "indexer": ".",
+              "identifier": {
+                "type": "Identifier",
+                "name": "b"
+              },
+              "base": {
+                "type": "Identifier",
+                "name": "a"
+              }
+            }
+          ],
+          "init": [
+            {
+              "type": "Identifier",
+              "name": "a"
+            }
+          ]
+        },
+        {
+          "type": "AssignmentStatement",
+          "variables": [
+            {
+              "type": "IndexExpression",
+              "base": {
+                "type": "MemberExpression",
+                "indexer": ".",
+                "identifier": {
+                  "type": "Identifier",
+                  "name": "b"
+                },
+                "base": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
+              },
+              "index": {
+                "type": "StringLiteral",
+                "value": null,
+                "raw": "\"c\""
+              }
+            },
+            {
+              "type": "Identifier",
+              "name": "d"
+            }
+          ],
+          "init": [
+            {
+              "type": "FunctionDeclaration",
+              "identifier": null,
+              "isLocal": false,
+              "parameters": [
+                {
+                  "type": "Identifier",
+                  "name": "e"
+                }
+              ],
+              "body": [
+                {
+                  "type": "ReturnStatement",
+                  "arguments": [
+                    {
+                      "type": "Identifier",
+                      "name": "e"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "StringLiteral",
+              "value": null,
+              "raw": "\"f\""
+            }
+          ]
+        },
+        {
+          "type": "CallStatement",
+          "expression": {
+            "type": "CallExpression",
+            "base": {
+              "type": "Identifier",
+              "name": "print"
+            },
+            "arguments": [
+              {
+                "type": "CallExpression",
+                "base": {
+                  "type": "MemberExpression",
+                  "indexer": ".",
+                  "identifier": {
+                    "type": "Identifier",
+                    "name": "b"
+                  },
+                  "base": {
+                    "type": "Identifier",
+                    "name": "a"
+                  }
+                },
+                "arguments": [
+                  {
+                    "type": "StringLiteral",
+                    "value": null,
+                    "raw": "\"g\""
+                  }
+                ]
+              },
+              {
+                "type": "UnaryExpression",
+                "operator": "#",
+                "argument": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "ReturnStatement",
+          "arguments": [
+            {
+              "type": "TableConstructorExpression",
+              "fields": [
+                {
+                  "type": "TableKeyString",
+                  "key": {
+                    "type": "Identifier",
+                    "name": "a"
+                  },
+                  "value": {
+                    "type": "Identifier",
+                    "name": "a"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "comments": []
+    }
+  ],
+  "required": [
+    "type",
+    "body",
+    "comments"
+  ],
+  "properties": {
+    "type": {
+      "$id": "#/properties/type",
+      "type": "string",
+      "title": "The type schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        "Chunk"
+      ]
+    },
+    "body": {
+      "$id": "#/properties/body",
+      "type": "array",
+      "title": "The body schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        [
+          {
+            "type": "LocalStatement",
+            "variables": [
+              {
+                "type": "Identifier",
+                "name": "a"
+              }
+            ],
+            "init": [
+              {
+                "type": "TableConstructorExpression",
+                "fields": []
+              }
+            ]
+          },
+          {
+            "type": "AssignmentStatement",
+            "variables": [
+              {
+                "type": "MemberExpression",
+                "indexer": ".",
+                "identifier": {
+                  "type": "Identifier",
+                  "name": "b"
+                },
+                "base": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
+              }
+            ],
+            "init": [
+              {
+                "type": "Identifier",
+                "name": "a"
+              }
+            ]
+          }
+        ]
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/body/items",
+        "anyOf": [
+          {
+            "$id": "#/properties/body/items/anyOf/0",
+            "type": "object",
+            "title": "The first anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "type": "LocalStatement",
+                "variables": [
+                  {
+                    "type": "Identifier",
+                    "name": "a"
+                  }
+                ],
+                "init": [
+                  {
+                    "type": "TableConstructorExpression",
+                    "fields": []
+                  }
+                ]
+              }
+            ],
+            "required": [
+              "type",
+              "variables",
+              "init"
+            ],
+            "properties": {
+              "type": {
+                "$id": "#/properties/body/items/anyOf/0/properties/type",
+                "type": "string",
+                "title": "The type schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "LocalStatement"
+                ]
+              },
+              "variables": {
+                "$id": "#/properties/body/items/anyOf/0/properties/variables",
+                "type": "array",
+                "title": "The variables schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "type": "Identifier",
+                      "name": "a"
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/body/items/anyOf/0/properties/variables/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/body/items/anyOf/0/properties/variables/items/anyOf/0",
+                      "type": "object",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                        {
+                          "type": "Identifier",
+                          "name": "a"
+                        }
+                      ],
+                      "required": [
+                        "type",
+                        "name"
+                      ],
+                      "properties": {
+                        "type": {
+                          "$id": "#/properties/body/items/anyOf/0/properties/variables/items/anyOf/0/properties/type",
+                          "type": "string",
+                          "title": "The type schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "Identifier"
+                          ]
+                        },
+                        "name": {
+                          "$id": "#/properties/body/items/anyOf/0/properties/variables/items/anyOf/0/properties/name",
+                          "type": "string",
+                          "title": "The name schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "a"
+                          ]
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  ]
+                }
+              },
+              "init": {
+                "$id": "#/properties/body/items/anyOf/0/properties/init",
+                "type": "array",
+                "title": "The init schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "type": "TableConstructorExpression",
+                      "fields": []
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/body/items/anyOf/0/properties/init/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/body/items/anyOf/0/properties/init/items/anyOf/0",
+                      "type": "object",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                        {
+                          "type": "TableConstructorExpression",
+                          "fields": []
+                        }
+                      ],
+                      "required": [
+                        "type",
+                        "fields"
+                      ],
+                      "properties": {
+                        "type": {
+                          "$id": "#/properties/body/items/anyOf/0/properties/init/items/anyOf/0/properties/type",
+                          "type": "string",
+                          "title": "The type schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "TableConstructorExpression"
+                          ]
+                        },
+                        "fields": {
+                          "$id": "#/properties/body/items/anyOf/0/properties/init/items/anyOf/0/properties/fields",
+                          "type": "array",
+                          "title": "The fields schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": [],
+                          "examples": [
+                            []
+                          ],
+                          "additionalItems": true,
+                          "items": {
+                            "$id": "#/properties/body/items/anyOf/0/properties/init/items/anyOf/0/properties/fields/items"
+                          }
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": true
+          },
+          {
+            "$id": "#/properties/body/items/anyOf/1",
+            "type": "object",
+            "title": "The second anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "type": "CallStatement",
+                "expression": {
+                  "type": "CallExpression",
+                  "base": {
+                    "type": "Identifier",
+                    "name": "print"
+                  },
+                  "arguments": [
+                    {
+                      "type": "CallExpression",
+                      "base": {
+                        "type": "MemberExpression",
+                        "indexer": ".",
+                        "identifier": {
+                          "type": "Identifier",
+                          "name": "b"
+                        },
+                        "base": {
+                          "type": "Identifier",
+                          "name": "a"
+                        }
+                      },
+                      "arguments": [
+                        {
+                          "type": "StringLiteral",
+                          "value": null,
+                          "raw": "\"g\""
+                        }
+                      ]
+                    },
+                    {
+                      "type": "UnaryExpression",
+                      "operator": "#",
+                      "argument": {
+                        "type": "Identifier",
+                        "name": "a"
+                      }
+                    }
+                  ]
+                }
+              }
+            ],
+            "required": [
+              "type",
+              "expression"
+            ],
+            "properties": {
+              "type": {
+                "$id": "#/properties/body/items/anyOf/1/properties/type",
+                "type": "string",
+                "title": "The type schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "CallStatement"
+                ]
+              },
+              "expression": {
+                "$id": "#/properties/body/items/anyOf/1/properties/expression",
+                "type": "object",
+                "title": "The expression schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "type": "CallExpression",
+                    "base": {
+                      "type": "Identifier",
+                      "name": "print"
+                    },
+                    "arguments": [
+                      {
+                        "type": "CallExpression",
+                        "base": {
+                          "type": "MemberExpression",
+                          "indexer": ".",
+                          "identifier": {
+                            "type": "Identifier",
+                            "name": "b"
+                          },
+                          "base": {
+                            "type": "Identifier",
+                            "name": "a"
+                          }
+                        },
+                        "arguments": [
+                          {
+                            "type": "StringLiteral",
+                            "value": null,
+                            "raw": "\"g\""
+                          }
+                        ]
+                      },
+                      {
+                        "type": "UnaryExpression",
+                        "operator": "#",
+                        "argument": {
+                          "type": "Identifier",
+                          "name": "a"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "required": [
+                  "type",
+                  "base",
+                  "arguments"
+                ],
+                "properties": {
+                  "type": {
+                    "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/type",
+                    "type": "string",
+                    "title": "The type schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "CallExpression"
+                    ]
+                  },
+                  "base": {
+                    "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/base",
+                    "type": "object",
+                    "title": "The base schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": {},
+                    "examples": [
+                      {
+                        "type": "Identifier",
+                        "name": "print"
+                      }
+                    ],
+                    "required": [
+                      "type",
+                      "name"
+                    ],
+                    "properties": {
+                      "type": {
+                        "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/base/properties/type",
+                        "type": "string",
+                        "title": "The type schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "Identifier"
+                        ]
+                      },
+                      "name": {
+                        "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/base/properties/name",
+                        "type": "string",
+                        "title": "The name schema",
+                        "description": "An explanation about the purpose of this instance.",
+                        "default": "",
+                        "examples": [
+                          "print"
+                        ]
+                      }
+                    },
+                    "additionalProperties": true
+                  },
+                  "arguments": {
+                    "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments",
+                    "type": "array",
+                    "title": "The arguments schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      [
+                        {
+                          "type": "CallExpression",
+                          "base": {
+                            "type": "MemberExpression",
+                            "indexer": ".",
+                            "identifier": {
+                              "type": "Identifier",
+                              "name": "b"
+                            },
+                            "base": {
+                              "type": "Identifier",
+                              "name": "a"
+                            }
+                          },
+                          "arguments": [
+                            {
+                              "type": "StringLiteral",
+                              "value": null,
+                              "raw": "\"g\""
+                            }
+                          ]
+                        },
+                        {
+                          "type": "UnaryExpression",
+                          "operator": "#",
+                          "argument": {
+                            "type": "Identifier",
+                            "name": "a"
+                          }
+                        }
+                      ]
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items",
+                      "anyOf": [
+                        {
+                          "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0",
+                          "type": "object",
+                          "title": "The first anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                            {
+                              "type": "CallExpression",
+                              "base": {
+                                "type": "MemberExpression",
+                                "indexer": ".",
+                                "identifier": {
+                                  "type": "Identifier",
+                                  "name": "b"
+                                },
+                                "base": {
+                                  "type": "Identifier",
+                                  "name": "a"
+                                }
+                              },
+                              "arguments": [
+                                {
+                                  "type": "StringLiteral",
+                                  "value": null,
+                                  "raw": "\"g\""
+                                }
+                              ]
+                            }
+                          ],
+                          "required": [
+                            "type",
+                            "base",
+                            "arguments"
+                          ],
+                          "properties": {
+                            "type": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/type",
+                              "type": "string",
+                              "title": "The type schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                "CallExpression"
+                              ]
+                            },
+                            "base": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base",
+                              "type": "object",
+                              "title": "The base schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": {},
+                              "examples": [
+                                {
+                                  "type": "MemberExpression",
+                                  "indexer": ".",
+                                  "identifier": {
+                                    "type": "Identifier",
+                                    "name": "b"
+                                  },
+                                  "base": {
+                                    "type": "Identifier",
+                                    "name": "a"
+                                  }
+                                }
+                              ],
+                              "required": [
+                                "type",
+                                "indexer",
+                                "identifier",
+                                "base"
+                              ],
+                              "properties": {
+                                "type": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/type",
+                                  "type": "string",
+                                  "title": "The type schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                    "MemberExpression"
+                                  ]
+                                },
+                                "indexer": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/indexer",
+                                  "type": "string",
+                                  "title": "The indexer schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                    "."
+                                  ]
+                                },
+                                "identifier": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/identifier",
+                                  "type": "object",
+                                  "title": "The identifier schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                    {
+                                      "type": "Identifier",
+                                      "name": "b"
+                                    }
+                                  ],
+                                  "required": [
+                                    "type",
+                                    "name"
+                                  ],
+                                  "properties": {
+                                    "type": {
+                                      "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/identifier/properties/type",
+                                      "type": "string",
+                                      "title": "The type schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": "",
+                                      "examples": [
+                                        "Identifier"
+                                      ]
+                                    },
+                                    "name": {
+                                      "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/identifier/properties/name",
+                                      "type": "string",
+                                      "title": "The name schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": "",
+                                      "examples": [
+                                        "b"
+                                      ]
+                                    }
+                                  },
+                                  "additionalProperties": true
+                                },
+                                "base": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/base",
+                                  "type": "object",
+                                  "title": "The base schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": {},
+                                  "examples": [
+                                    {
+                                      "type": "Identifier",
+                                      "name": "a"
+                                    }
+                                  ],
+                                  "required": [
+                                    "type",
+                                    "name"
+                                  ],
+                                  "properties": {
+                                    "type": {
+                                      "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/base/properties/type",
+                                      "type": "string",
+                                      "title": "The type schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": "",
+                                      "examples": [
+                                        "Identifier"
+                                      ]
+                                    },
+                                    "name": {
+                                      "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/base/properties/base/properties/name",
+                                      "type": "string",
+                                      "title": "The name schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": "",
+                                      "examples": [
+                                        "a"
+                                      ]
+                                    }
+                                  },
+                                  "additionalProperties": true
+                                }
+                              },
+                              "additionalProperties": true
+                            },
+                            "arguments": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments",
+                              "type": "array",
+                              "title": "The arguments schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": [],
+                              "examples": [
+                                [
+                                  {
+                                    "type": "StringLiteral",
+                                    "value": null,
+                                    "raw": "\"g\""
+                                  }
+                                ]
+                              ],
+                              "additionalItems": true,
+                              "items": {
+                                "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments/items",
+                                "anyOf": [
+                                  {
+                                    "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments/items/anyOf/0",
+                                    "type": "object",
+                                    "title": "The first anyOf schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": {},
+                                    "examples": [
+                                      {
+                                        "type": "StringLiteral",
+                                        "value": null,
+                                        "raw": "\"g\""
+                                      }
+                                    ],
+                                    "required": [
+                                      "type",
+                                      "value",
+                                      "raw"
+                                    ],
+                                    "properties": {
+                                      "type": {
+                                        "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments/items/anyOf/0/properties/type",
+                                        "type": "string",
+                                        "title": "The type schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "StringLiteral"
+                                        ]
+                                      },
+                                      "value": {
+                                        "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments/items/anyOf/0/properties/value",
+                                        "type": "null",
+                                        "title": "The value schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": null,
+                                        "examples": [
+                                          null
+                                        ]
+                                      },
+                                      "raw": {
+                                        "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/0/properties/arguments/items/anyOf/0/properties/raw",
+                                        "type": "string",
+                                        "title": "The raw schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "\"g\""
+                                        ]
+                                      }
+                                    },
+                                    "additionalProperties": true
+                                  }
+                                ]
+                              }
+                            }
+                          },
+                          "additionalProperties": true
+                        },
+                        {
+                          "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1",
+                          "type": "object",
+                          "title": "The second anyOf schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": {},
+                          "examples": [
+                            {
+                              "type": "UnaryExpression",
+                              "operator": "#",
+                              "argument": {
+                                "type": "Identifier",
+                                "name": "a"
+                              }
+                            }
+                          ],
+                          "required": [
+                            "type",
+                            "operator",
+                            "argument"
+                          ],
+                          "properties": {
+                            "type": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1/properties/type",
+                              "type": "string",
+                              "title": "The type schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                "UnaryExpression"
+                              ]
+                            },
+                            "operator": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1/properties/operator",
+                              "type": "string",
+                              "title": "The operator schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": "",
+                              "examples": [
+                                "#"
+                              ]
+                            },
+                            "argument": {
+                              "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1/properties/argument",
+                              "type": "object",
+                              "title": "The argument schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": {},
+                              "examples": [
+                                {
+                                  "type": "Identifier",
+                                  "name": "a"
+                                }
+                              ],
+                              "required": [
+                                "type",
+                                "name"
+                              ],
+                              "properties": {
+                                "type": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1/properties/argument/properties/type",
+                                  "type": "string",
+                                  "title": "The type schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                    "Identifier"
+                                  ]
+                                },
+                                "name": {
+                                  "$id": "#/properties/body/items/anyOf/1/properties/expression/properties/arguments/items/anyOf/1/properties/argument/properties/name",
+                                  "type": "string",
+                                  "title": "The name schema",
+                                  "description": "An explanation about the purpose of this instance.",
+                                  "default": "",
+                                  "examples": [
+                                    "a"
+                                  ]
+                                }
+                              },
+                              "additionalProperties": true
+                            }
+                          },
+                          "additionalProperties": true
+                        }
+                      ]
+                    }
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          },
+          {
+            "$id": "#/properties/body/items/anyOf/2",
+            "type": "object",
+            "title": "The third anyOf schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+              {
+                "type": "ReturnStatement",
+                "arguments": [
+                  {
+                    "type": "TableConstructorExpression",
+                    "fields": [
+                      {
+                        "type": "TableKeyString",
+                        "key": {
+                          "type": "Identifier",
+                          "name": "a"
+                        },
+                        "value": {
+                          "type": "Identifier",
+                          "name": "a"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "required": [
+              "type",
+              "arguments"
+            ],
+            "properties": {
+              "type": {
+                "$id": "#/properties/body/items/anyOf/2/properties/type",
+                "type": "string",
+                "title": "The type schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                  "ReturnStatement"
+                ]
+              },
+              "arguments": {
+                "$id": "#/properties/body/items/anyOf/2/properties/arguments",
+                "type": "array",
+                "title": "The arguments schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                  [
+                    {
+                      "type": "TableConstructorExpression",
+                      "fields": [
+                        {
+                          "type": "TableKeyString",
+                          "key": {
+                            "type": "Identifier",
+                            "name": "a"
+                          },
+                          "value": {
+                            "type": "Identifier",
+                            "name": "a"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                "additionalItems": true,
+                "items": {
+                  "$id": "#/properties/body/items/anyOf/2/properties/arguments/items",
+                  "anyOf": [
+                    {
+                      "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0",
+                      "type": "object",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "examples": [
+                        {
+                          "type": "TableConstructorExpression",
+                          "fields": [
+                            {
+                              "type": "TableKeyString",
+                              "key": {
+                                "type": "Identifier",
+                                "name": "a"
+                              },
+                              "value": {
+                                "type": "Identifier",
+                                "name": "a"
+                              }
+                            }
+                          ]
+                        }
+                      ],
+                      "required": [
+                        "type",
+                        "fields"
+                      ],
+                      "properties": {
+                        "type": {
+                          "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/type",
+                          "type": "string",
+                          "title": "The type schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": "",
+                          "examples": [
+                            "TableConstructorExpression"
+                          ]
+                        },
+                        "fields": {
+                          "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields",
+                          "type": "array",
+                          "title": "The fields schema",
+                          "description": "An explanation about the purpose of this instance.",
+                          "default": [],
+                          "examples": [
+                            [
+                              {
+                                "type": "TableKeyString",
+                                "key": {
+                                  "type": "Identifier",
+                                  "name": "a"
+                                },
+                                "value": {
+                                  "type": "Identifier",
+                                  "name": "a"
+                                }
+                              }
+                            ]
+                          ],
+                          "additionalItems": true,
+                          "items": {
+                            "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items",
+                            "anyOf": [
+                              {
+                                "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0",
+                                "type": "object",
+                                "title": "The first anyOf schema",
+                                "description": "An explanation about the purpose of this instance.",
+                                "default": {},
+                                "examples": [
+                                  {
+                                    "type": "TableKeyString",
+                                    "key": {
+                                      "type": "Identifier",
+                                      "name": "a"
+                                    },
+                                    "value": {
+                                      "type": "Identifier",
+                                      "name": "a"
+                                    }
+                                  }
+                                ],
+                                "required": [
+                                  "type",
+                                  "key",
+                                  "value"
+                                ],
+                                "properties": {
+                                  "type": {
+                                    "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/type",
+                                    "type": "string",
+                                    "title": "The type schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": "",
+                                    "examples": [
+                                      "TableKeyString"
+                                    ]
+                                  },
+                                  "key": {
+                                    "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/key",
+                                    "type": "object",
+                                    "title": "The key schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": {},
+                                    "examples": [
+                                      {
+                                        "type": "Identifier",
+                                        "name": "a"
+                                      }
+                                    ],
+                                    "required": [
+                                      "type",
+                                      "name"
+                                    ],
+                                    "properties": {
+                                      "type": {
+                                        "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/key/properties/type",
+                                        "type": "string",
+                                        "title": "The type schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "Identifier"
+                                        ]
+                                      },
+                                      "name": {
+                                        "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/key/properties/name",
+                                        "type": "string",
+                                        "title": "The name schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "a"
+                                        ]
+                                      }
+                                    },
+                                    "additionalProperties": true
+                                  },
+                                  "value": {
+                                    "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/value",
+                                    "type": "object",
+                                    "title": "The value schema",
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "default": {},
+                                    "examples": [
+                                      {
+                                        "type": "Identifier",
+                                        "name": "a"
+                                      }
+                                    ],
+                                    "required": [
+                                      "type",
+                                      "name"
+                                    ],
+                                    "properties": {
+                                      "type": {
+                                        "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/value/properties/type",
+                                        "type": "string",
+                                        "title": "The type schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "Identifier"
+                                        ]
+                                      },
+                                      "name": {
+                                        "$id": "#/properties/body/items/anyOf/2/properties/arguments/items/anyOf/0/properties/fields/items/anyOf/0/properties/value/properties/name",
+                                        "type": "string",
+                                        "title": "The name schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                          "a"
+                                        ]
+                                      }
+                                    },
+                                    "additionalProperties": true
+                                  }
+                                },
+                                "additionalProperties": true
+                              }
+                            ]
+                          }
+                        }
+                      },
+                      "additionalProperties": true
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": true
+          }
+        ]
+      }
+    },
+    "comments": {
+      "$id": "#/properties/comments",
+      "type": "array",
+      "title": "The comments schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        []
+      ],
+      "additionalItems": true,
+      "items": {
+        "$id": "#/properties/comments/items"
+      }
+    }
+  },
+  "additionalProperties": true
+}
