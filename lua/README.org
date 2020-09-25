@@ -50,7 +50,13 @@ lua -e 'print(math.sin(1))'
 * Documentation
 
 - http://www.lua.org/manual/5.1/manual.html#pdf-for
-* Tasks
+* Parsing Lua
+
+
+#+begin_src lua
+local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}
+#+end_src
+
 
 ** Bytecode
 
@@ -59,34 +65,59 @@ lua -e 'print(math.sin(1))'
 luajit -bl ast-example.lua
 #+end_src
 
+#+RESULTS:
+|   -- | BYTECODE |   -- | ast-example.lua:1-1 |      |                   |   |
+| 0001 | RET1     |    0 |                   2 |      |                   |   |
+|   -- | BYTECODE |   -- | ast-example.lua:0-2 |      |                   |   |
+| 0001 | TNEW     |    0 |                   0 |      |                   |   |
+| 0002 | TSETS    |    0 |                   0 |    0 | ;                 | b |
+| 0003 | TGETS    |    1 |                   0 |    0 | ;                 | b |
+| 0004 | FNEW     |    2 |                   2 |    ; | ast-example.lua:1 |   |
+| 0005 | KSTR     |    3 |                   3 |    ; | f                 |   |
+| 0006 | GSET     |    3 |                   4 |    ; | d                 |   |
+| 0007 | TSETS    |    2 |                   1 |    1 | ;                 | c |
+| 0008 | GGET     |    1 |                   5 |    ; | print             |   |
+| 0009 | TGETS    |    2 |                   0 |    0 | ;                 | b |
+| 0010 | KSTR     |    3 |                   6 |    ; | g                 |   |
+| 0011 | CALL     |    2 |                   2 |    2 |                   |   |
+| 0012 | LEN      |    3 |                   0 |      |                   |   |
+| 0013 | CALL     |    1 |                   1 |    3 |                   |   |
+| 0014 | TDUP     |    1 |                   7 |      |                   |   |
+| 0015 | TSETS    |    0 |                   1 |    8 | ;                 | a |
+| 0016 | UCLO     |    0 |                  => | 0017 |                   |   |
+| 0017 | =>       | RET1 |                   1 |    2 |                   |   |
+
 #+begin_src asm
 -- BYTECODE -- ast-example.lua:1-1
 0001    RET1     0   2
 
 -- BYTECODE -- ast-example.lua:0-2
 0001    TNEW     0   0
-0002    TSETS    0   0   0  ; "a"
-0003    TGETS    1   0   0  ; "a"
-0004    FNEW     2   1      ; ast-example.lua:1
-0005    TSETS    2   1   0  ; "a"
-0006    GGET     1   2      ; "print"
-0007    TGETS    2   0   0  ; "a"
-0008    KSTR     3   0      ; "a"
-0009    CALL     2   2   2
-0010    LEN      3   0
-0011    CALL     1   1   3
-0012    RET0     0   1
+0002    TSETS    0   0   0  ; "b"
+0003    TGETS    1   0   0  ; "b"
+0004    FNEW     2   2      ; ast-example.lua:1
+0005    KSTR     3   3      ; "f"
+0006    GSET     3   4      ; "d"
+0007    TSETS    2   1   1  ; "c"
+0008    GGET     1   5      ; "print"
+0009    TGETS    2   0   0  ; "b"
+0010    KSTR     3   6      ; "g"
+0011    CALL     2   2   2
+0012    LEN      3   0
+0013    CALL     1   1   3
+0014    TDUP     1   7
+0015    TSETS    0   1   8  ; "a"
+0016    UCLO     0 => 0017
+0017 => RET1     1   2
+
 
 #+end_src
 
-
+#+begin_src sh
+npx ./ast.js | jq
+#+end_src
 
 ** AST
-
-#+begin_src lua
-local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}
-#+end_src
-
 
 #+begin_src json
 {

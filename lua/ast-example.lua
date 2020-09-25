@@ -1,1 +1,1 @@
-local a = {} ; a.b = a a.b["c"] = function(d) return d end print(a.b("e"), #a) return { a = a}
+local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}
