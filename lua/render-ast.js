@@ -2,46 +2,87 @@ const ast = require('./ast.js.json')
 
 
 const renderVariable = (variable) => {
-
+  console.log(variable)
 }
 
+let prefix = []
+
 const render = (block) => {
+  prefix.push('#')
+  console.log(prefix.join(''), block.type ? block.type : block)
   switch(block.type) {
   case 'Chunk':
-    console.log('filename.lua')
-    block.body.map(e => {
-      render(e)
-    })
+    block.body ? block.body.map(render) : console.log('')
     break;
-  case 'LocalStatement':
-    console.log('LocalStatement')
-    for (let i = 0; i < block.variables.length; i ++) {
-      console.log(block.variables[i].name, '=', block.init[i].type)
-    }
-    break;
+
   case 'AssignmentStatement':
-    // console.log('AssignmentStatement');
-    for (let i = 0; i < block.variables.length; i ++) {
-      // console.log('AssignmentStatement', i);
-      if (block.variables[i].base) {
-        console.log(block.variables[i].base.name)
-      }
-      console.log(1, block.variables[i].identifier)
-      console.log(2, block.init[i].name)
-    }
+    block.variables ? block.variables.map(render) : console.log('')
+    block.init ? block.init.map(render) : console.log('')
     break;
+
+  case 'CallExpression':
+    block.base ? render(block.base) : console.log('')
+    block.arguments ? block.arguments.map(render) : console.log('')
+    break;
+
   case 'CallStatement':
-    console.log('CallStatement')
-    console.log(block.expression)
+    block.expression ? render(block.expression) : console.log('')
+    block.arguments ? block.arguments.map(render) : console.log('')
     break;
+
+  case 'FunctionDeclaration':
+    console.log(block.indentifier, block.isLocal)
+    block.parameters ? block.parameters.map(render) : console.log('')
+    block.body ? block.body.map(render) : console.log('')
+    break;
+
+  case 'Identifier':
+    block.name ? console.log(block.name) : console.log('')
+    break;
+
+  case 'IndexExpression':
+    block.base ? render(block.base) : console.log('')
+    block.index? render(block.index) : console.log('')
+    break;
+
+  case 'LocalStatement':
+    block.variables ? block.variables.map(render) : console.log('')
+    block.init ? block.init.map(render) :  console.log('')
+    break;
+
+  case 'MemberExpression': // Terminating
+    console.log(block.base.name, block.indexer, block.identifier.name)
+    break;
+
   case 'ReturnStatement':
-    console.log('ReturnStatement')
-    console.log(block.arguments)
+    block['arguments'] ? block['arguments'].map(render) : console.log('')
     break;
+
+  case 'StringLiteral':
+    console.log(block.value, block.raw)
+    break;
+
+  case 'TableConstructorExpression':
+    console.log('{')
+    block['arguments'] ? block['arguments'].map(render) : console.log('')
+    block['fields'] ? block['fields'].map(render) : console.log('')
+    console.log('}')
+    break;
+
+  case 'TableKeyString':
+    console.log(block.key.name, '=', block.value.name)
+    break;
+
+  case 'UnaryExpression':
+    console.log(block.operator, block.argument.name)
+    break;
+
   default:
     console.log('UnknownBlock')
     console.log(block.arguments)
   }
+  prefix.pop()
+
 }
 
 render(ast)
