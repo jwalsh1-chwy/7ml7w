@@ -11,9 +11,9 @@ const log = (...args) => {
   console.log(prefix.join(' '), ...args)
 }
 
-const render = (block) => {
+const render = (block, i) => {
   prefix.push('')
-  console.log(prefix.join('*'), block.type ? block.type : block)
+  console.log(prefix.join('*'), block.type ? block.type : block, i ? i : '')
   switch(block.type) {
   case 'Chunk':
     block.body ? block.body.map(render) : log('')
@@ -21,6 +21,7 @@ const render = (block) => {
 
   case 'AssignmentStatement':
     block.variables ? block.variables.map(render) : log('')
+    log('=')
     block.init ? block.init.map(render) : log('')
     break;
 
@@ -36,7 +37,9 @@ const render = (block) => {
 
   case 'FunctionDeclaration':
     // log(block.indentifier, block.isLocal)
+    log('function(')
     block.parameters ? block.parameters.map(render) : log('')
+    log(')')
     block.body ? block.body.map(render) : log('')
     break;
 
@@ -46,11 +49,15 @@ const render = (block) => {
 
   case 'IndexExpression':
     block.base ? render(block.base) : log('')
+    log('[')
     block.index? render(block.index) : log('')
+    log(']')
     break;
 
   case 'LocalStatement':
+    log('local')
     block.variables ? block.variables.map(render) : log('')
+    log('=')
     block.init ? block.init.map(render) :  log('')
     break;
 

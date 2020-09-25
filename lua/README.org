@@ -296,36 +296,45 @@ npx ./ast.js | jq
 
 #+end_src
 
+
 * Chunk
 ** LocalStatement
+   local
 *** Identifier
     a
+   =
 *** TableConstructorExpression
     {
 
     }
-** AssignmentStatement
+** AssignmentStatement 1
 *** MemberExpression
     a . b
+   =
 *** Identifier
     a
-** AssignmentStatement
+** AssignmentStatement 2
 *** IndexExpression
 **** MemberExpression
      a . b
+    [
 **** StringLiteral
      null "c"
-*** Identifier
+    ]
+*** Identifier 1
     d
+   =
 *** FunctionDeclaration
+    function(
 **** Identifier
      e
+    )
 **** ReturnStatement
 ***** Identifier
       e
-*** StringLiteral
+*** StringLiteral 1
     null "f"
-** CallStatement
+** CallStatement 3
 *** CallExpression
 **** Identifier
      print
@@ -334,10 +343,10 @@ npx ./ast.js | jq
       a . b
 ***** StringLiteral
       null "g"
-**** UnaryExpression
+**** UnaryExpression 1
      # a
 
-** ReturnStatement
+** ReturnStatement 4
 *** TableConstructorExpression
     {
 
