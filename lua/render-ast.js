@@ -5,81 +5,85 @@ const renderVariable = (variable) => {
   console.log(variable)
 }
 
-let prefix = []
+let prefix = ['']
+
+const log = (...args) => {
+  console.log(prefix.join(' '), ...args)
+}
 
 const render = (block) => {
-  prefix.push('#')
-  console.log(prefix.join(''), block.type ? block.type : block)
+  prefix.push('')
+  console.log(prefix.join('*'), block.type ? block.type : block)
   switch(block.type) {
   case 'Chunk':
-    block.body ? block.body.map(render) : console.log('')
+    block.body ? block.body.map(render) : log('')
     break;
 
   case 'AssignmentStatement':
-    block.variables ? block.variables.map(render) : console.log('')
-    block.init ? block.init.map(render) : console.log('')
+    block.variables ? block.variables.map(render) : log('')
+    block.init ? block.init.map(render) : log('')
     break;
 
   case 'CallExpression':
-    block.base ? render(block.base) : console.log('')
-    block.arguments ? block.arguments.map(render) : console.log('')
+    block.base ? render(block.base) : log('')
+    block.arguments ? block.arguments.map(render) : log('')
     break;
 
   case 'CallStatement':
-    block.expression ? render(block.expression) : console.log('')
-    block.arguments ? block.arguments.map(render) : console.log('')
+    block.expression ? render(block.expression) : log('')
+    block.arguments ? block.arguments.map(render) : log('')
     break;
 
   case 'FunctionDeclaration':
-    console.log(block.indentifier, block.isLocal)
-    block.parameters ? block.parameters.map(render) : console.log('')
-    block.body ? block.body.map(render) : console.log('')
+    // log(block.indentifier, block.isLocal)
+    block.parameters ? block.parameters.map(render) : log('')
+    block.body ? block.body.map(render) : log('')
     break;
 
   case 'Identifier':
-    block.name ? console.log(block.name) : console.log('')
+    block.name ? log(block.name) : log('')
     break;
 
   case 'IndexExpression':
-    block.base ? render(block.base) : console.log('')
-    block.index? render(block.index) : console.log('')
+    block.base ? render(block.base) : log('')
+    block.index? render(block.index) : log('')
     break;
 
   case 'LocalStatement':
-    block.variables ? block.variables.map(render) : console.log('')
-    block.init ? block.init.map(render) :  console.log('')
+    block.variables ? block.variables.map(render) : log('')
+    block.init ? block.init.map(render) :  log('')
     break;
 
   case 'MemberExpression': // Terminating
-    console.log(block.base.name, block.indexer, block.identifier.name)
+    log(block.base.name, block.indexer, block.identifier.name)
     break;
 
   case 'ReturnStatement':
-    block['arguments'] ? block['arguments'].map(render) : console.log('')
+    block['arguments'] ? block['arguments'].map(render) : log('')
     break;
 
   case 'StringLiteral':
-    console.log(block.value, block.raw)
+    log(block.value, block.raw)
     break;
 
   case 'TableConstructorExpression':
-    console.log('{')
-    block['arguments'] ? block['arguments'].map(render) : console.log('')
-    block['fields'] ? block['fields'].map(render) : console.log('')
-    console.log('}')
+    log('{')
+    block['arguments'] ? block['arguments'].map(render) : log('')
+    block['fields'] ? block['fields'].map(render) : log('')
+    log('}')
     break;
 
   case 'TableKeyString':
-    console.log(block.key.name, '=', block.value.name)
+    log(block.key.name, '=', block.value.name)
     break;
 
   case 'UnaryExpression':
-    console.log(block.operator, block.argument.name)
+    log(block.operator, block.argument.name)
     break;
 
   default:
-    console.log('UnknownBlock')
-    console.log(block.arguments)
+    log('UnknownBlock')
+    log(block.arguments)
   }
   prefix.pop()
 

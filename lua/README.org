@@ -295,3 +295,52 @@ npx ./ast.js | jq
 }
 
 #+end_src
+
+* Chunk
+** LocalStatement
+*** Identifier
+    a
+*** TableConstructorExpression
+    {
+
+    }
+** AssignmentStatement
+*** MemberExpression
+    a . b
+*** Identifier
+    a
+** AssignmentStatement
+*** IndexExpression
+**** MemberExpression
+     a . b
+**** StringLiteral
+     null "c"
+*** Identifier
+    d
+*** FunctionDeclaration
+**** Identifier
+     e
+**** ReturnStatement
+***** Identifier
+      e
+*** StringLiteral
+    null "f"
+** CallStatement
+*** CallExpression
+**** Identifier
+     print
+**** CallExpression
+***** MemberExpression
+      a . b
+***** StringLiteral
+      null "g"
+**** UnaryExpression
+     # a
+
+** ReturnStatement
+*** TableConstructorExpression
+    {
+
+**** TableKeyString
+     a = a
+    }
