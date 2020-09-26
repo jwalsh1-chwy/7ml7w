@@ -1,1 +1,1 @@
-local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}
+local a = {} ; a.b = a a.b[#a.b + 1], d = function(e) return e end, "f" for k, v in pairs(a.b) do print(k .. "h", #a) end return { a = a}

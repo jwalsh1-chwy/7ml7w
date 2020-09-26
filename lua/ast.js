@@ -1,4 +1,11 @@
-var parser = require('luaparse');
-//  goto isn't supported in luaparse '::g::'
-var ast = parser.parse('local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a}');
-console.log(JSON.stringify(ast));
+const parser = require('luaparse');
+const fs = require('fs');
+
+fs.readFile('ast-example.lua', 'utf8', (err, data) => {
+  if (err) throw err;
+  const ast = JSON.stringify(parser.parse(data), null, '  ');
+  fs.writeFile('ast.js.json', ast, (err) => {
+    if (err) throw err;
+  });
+  console.log(ast);
+})

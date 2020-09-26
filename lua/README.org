@@ -53,7 +53,7 @@ lua -e 'print(math.sin(1))'
 * Parsing Lua
 
 #+begin_src lua
-local a = {} ; a.b = a a.b["c"], d = function(e) return e end, "f" print(a.b("g"), #a) return { a = a }
+local a = {} ; a.b = a a.b[#a.b + 1], d = function(e) return e end, "f" for k, v in pairs(a.b) do print(k .. "h", #a) end return { a = a}
 #+end_src
 
 This should be parsed as:
@@ -296,72 +296,99 @@ npx ./ast.js | jq
 
 #+end_src
 
-
-* Chunk
-** LocalStatement
-   local
-*** Identifier
-    a
-   =
-*** TableConstructorExpression
-    {
-
-    }
-   ;
-** AssignmentStatement 1
-*** MemberExpression
-    a.b
-   =
-*** Identifier
-    a
-   ;
-** AssignmentStatement 2
-*** IndexExpression
-**** MemberExpression
+** Chunk
+*** LocalStatement 0
+    local
+**** Identifier 0
+     a
+    =
+**** TableConstructorExpression 0
+     {
+     }
+    ;
+*** AssignmentStatement 1
+**** MemberExpression 0
      a.b
-    [
-**** StringLiteral
-     "c"
-    ]
-*** Identifier 1
-    d
-   =
-*** FunctionDeclaration
-    function(
-**** Identifier
-     e
-    )
-**** ReturnStatement
-     return
-***** Identifier
-      e
-    end
-*** StringLiteral 1
-    "f"
-   ;
-** CallStatement 3
-*** CallExpression
-**** Identifier
-     print
-    (
-**** CallExpression
+    =
+**** Identifier 0
+     a
+    ;
+*** AssignmentStatement 2
+**** IndexExpression 0
 ***** MemberExpression
       a.b
-     (
-***** StringLiteral
-      "g"
+     [
+***** BinaryExpression
+****** UnaryExpression
+       #
+******* MemberExpression
+        a.b
+      +
+****** NumericLiteral
+       1
+     ]
+**** Identifier 1
+     ,
+     d
+    =
+**** FunctionDeclaration 0
+     function(
+***** Identifier 0
+      e
      )
-**** UnaryExpression 1
-     #a
-    )
-
-** ReturnStatement 4
-   return
-*** TableConstructorExpression
-    {
-
-**** TableKeyString
-     a = a
-    }
-* Rebuilt
-local a = {  } ; a.b = a ; a.b [ "c" ] d = function( e ) return e end "f" ; print ( a.b ( "g" ) #a )  return {  a = a }
+***** ReturnStatement 0
+      return
+****** Identifier 0
+       e
+      ;
+     end
+**** StringLiteral 1
+     ,
+     "f"
+    ;
+*** ForGenericStatement 3
+    for
+**** Identifier 0
+     k
+**** Identifier 1
+     ,
+     v
+    in
+**** CallExpression 0
+***** Identifier
+      pairs
+     (
+***** MemberExpression 0
+      a.b
+     )
+    do
+**** CallStatement 0
+***** CallExpression
+****** Identifier
+       print
+      (
+****** BinaryExpression 0
+******* Identifier
+        k
+       ..
+******* StringLiteral
+        "h"
+****** UnaryExpression 1
+       ,
+       #
+******* Identifier
+        a
+      )
+     ;
+    end
+    ;
+*** ReturnStatement 4
+    return
+**** TableConstructorExpression 0
+     {
+***** TableKeyString 0
+      a = a
+     }
+    ;
+** Rebuilt
+local a = { } ; a.b = a ; a.b [ # a.b + 1 ] , d = function( e ) return e ; end , "f" ; for k , v in pairs ( a.b ) do print ( k .. "h" , # a ) ; end ; return { a = a } ;

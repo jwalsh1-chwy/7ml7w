@@ -57,9 +57,29 @@
             }
           },
           "index": {
-            "type": "StringLiteral",
-            "value": null,
-            "raw": "\"c\""
+            "type": "BinaryExpression",
+            "operator": "+",
+            "left": {
+              "type": "UnaryExpression",
+              "operator": "#",
+              "argument": {
+                "type": "MemberExpression",
+                "indexer": ".",
+                "identifier": {
+                  "type": "Identifier",
+                  "name": "b"
+                },
+                "base": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
+              }
+            },
+            "right": {
+              "type": "NumericLiteral",
+              "value": 1,
+              "raw": "1"
+            }
           }
         },
         {
@@ -98,17 +118,26 @@
       ]
     },
     {
-      "type": "CallStatement",
-      "expression": {
-        "type": "CallExpression",
-        "base": {
+      "type": "ForGenericStatement",
+      "variables": [
+        {
           "type": "Identifier",
-          "name": "print"
+          "name": "k"
         },
-        "arguments": [
-          {
-            "type": "CallExpression",
-            "base": {
+        {
+          "type": "Identifier",
+          "name": "v"
+        }
+      ],
+      "iterators": [
+        {
+          "type": "CallExpression",
+          "base": {
+            "type": "Identifier",
+            "name": "pairs"
+          },
+          "arguments": [
+            {
               "type": "MemberExpression",
               "indexer": ".",
               "identifier": {
@@ -119,25 +148,45 @@
                 "type": "Identifier",
                 "name": "a"
               }
+            }
+          ]
+        }
+      ],
+      "body": [
+        {
+          "type": "CallStatement",
+          "expression": {
+            "type": "CallExpression",
+            "base": {
+              "type": "Identifier",
+              "name": "print"
             },
             "arguments": [
               {
-                "type": "StringLiteral",
-                "value": null,
-                "raw": "\"g\""
+                "type": "BinaryExpression",
+                "operator": "..",
+                "left": {
+                  "type": "Identifier",
+                  "name": "k"
+                },
+                "right": {
+                  "type": "StringLiteral",
+                  "value": null,
+                  "raw": "\"h\""
+                }
+              },
+              {
+                "type": "UnaryExpression",
+                "operator": "#",
+                "argument": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
               }
             ]
-          },
-          {
-            "type": "UnaryExpression",
-            "operator": "#",
-            "argument": {
-              "type": "Identifier",
-              "name": "a"
-            }
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "type": "ReturnStatement",
