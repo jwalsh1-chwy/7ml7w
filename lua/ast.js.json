@@ -12,7 +12,16 @@
       "init": [
         {
           "type": "TableConstructorExpression",
-          "fields": []
+          "fields": [
+            {
+              "type": "TableValue",
+              "value": {
+                "type": "StringLiteral",
+                "value": null,
+                "raw": "\"c\""
+              }
+            }
+          ]
         }
       ]
     },
@@ -166,13 +175,13 @@
                 "type": "BinaryExpression",
                 "operator": "..",
                 "left": {
-                  "type": "Identifier",
-                  "name": "k"
-                },
-                "right": {
                   "type": "StringLiteral",
                   "value": null,
-                  "raw": "\"h\""
+                  "raw": "\"- \""
+                },
+                "right": {
+                  "type": "Identifier",
+                  "name": "k"
                 }
               },
               {

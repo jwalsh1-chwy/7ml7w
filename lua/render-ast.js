@@ -1,5 +1,5 @@
 const ast = require('./ast.js.json')
-
+const fs = require('fs')
 
 const renderVariable = (variable) => {
   console.log(variable)
@@ -113,6 +113,10 @@ const render = (block, i) => {
     log(block.key.name, '=', block.value.name)
     break;
 
+  case 'TableValue':
+    block.type ? render(block.value) : log(block)
+    break;
+
   case 'UnaryExpression':
     log(`${block.operator}`)
     block.argument.type  ? render(block.argument) : log(block.argument)
@@ -130,4 +134,8 @@ render(ast)
 console.log('')
 console.log('** Rebuilt')
 console.log('')
-console.log(source.join(' '))
+const rebuilt = source.join(' ')
+console.log(rebuilt)
+fs.writeFile('rebuilt.lua', rebuilt, (err) => {
+  if (err) throw err;
+});

@@ -187,9 +187,29 @@ npx ./ast.js | jq
             }
           },
           "index": {
-            "type": "StringLiteral",
-            "value": null,
-            "raw": "\"c\""
+            "type": "BinaryExpression",
+            "operator": "+",
+            "left": {
+              "type": "UnaryExpression",
+              "operator": "#",
+              "argument": {
+                "type": "MemberExpression",
+                "indexer": ".",
+                "identifier": {
+                  "type": "Identifier",
+                  "name": "b"
+                },
+                "base": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
+              }
+            },
+            "right": {
+              "type": "NumericLiteral",
+              "value": 1,
+              "raw": "1"
+            }
           }
         },
         {
@@ -228,17 +248,26 @@ npx ./ast.js | jq
       ]
     },
     {
-      "type": "CallStatement",
-      "expression": {
-        "type": "CallExpression",
-        "base": {
+      "type": "ForGenericStatement",
+      "variables": [
+        {
           "type": "Identifier",
-          "name": "print"
+          "name": "k"
         },
-        "arguments": [
-          {
-            "type": "CallExpression",
-            "base": {
+        {
+          "type": "Identifier",
+          "name": "v"
+        }
+      ],
+      "iterators": [
+        {
+          "type": "CallExpression",
+          "base": {
+            "type": "Identifier",
+            "name": "pairs"
+          },
+          "arguments": [
+            {
               "type": "MemberExpression",
               "indexer": ".",
               "identifier": {
@@ -249,25 +278,45 @@ npx ./ast.js | jq
                 "type": "Identifier",
                 "name": "a"
               }
+            }
+          ]
+        }
+      ],
+      "body": [
+        {
+          "type": "CallStatement",
+          "expression": {
+            "type": "CallExpression",
+            "base": {
+              "type": "Identifier",
+              "name": "print"
             },
             "arguments": [
               {
-                "type": "StringLiteral",
-                "value": null,
-                "raw": "\"g\""
+                "type": "BinaryExpression",
+                "operator": "..",
+                "left": {
+                  "type": "Identifier",
+                  "name": "k"
+                },
+                "right": {
+                  "type": "StringLiteral",
+                  "value": null,
+                  "raw": "\"h\""
+                }
+              },
+              {
+                "type": "UnaryExpression",
+                "operator": "#",
+                "argument": {
+                  "type": "Identifier",
+                  "name": "a"
+                }
               }
             ]
-          },
-          {
-            "type": "UnaryExpression",
-            "operator": "#",
-            "argument": {
-              "type": "Identifier",
-              "name": "a"
-            }
           }
-        ]
-      }
+        }
+      ]
     },
     {
       "type": "ReturnStatement",
@@ -293,10 +342,7 @@ npx ./ast.js | jq
   ],
   "comments": []
 }
-
 #+end_src
-
-
 
 
 ** Chunk
@@ -314,6 +360,13 @@ npx ./ast.js | jq
 **** TableConstructorExpression 0
 
      {
+
+***** TableValue 0
+
+
+****** StringLiteral
+
+       "c"
      }
     ;
 
@@ -431,14 +484,14 @@ npx ./ast.js | jq
 ****** BinaryExpression 0
 
 
+******* StringLiteral
+
+        "- "
+       ..
+
 ******* Identifier
 
         k
-       ..
-
-******* StringLiteral
-
-        "h"
 
 ****** UnaryExpression 1
 
@@ -469,4 +522,4 @@ npx ./ast.js | jq
 
 ** Rebuilt
 
-local a = { } ; a.b = a ; a.b [ # a.b + 1 ] , d = function( e ) return e ; end , "f" ; for k , v in pairs ( a.b ) do print ( k .. "h" , # a ) ; end ; return { a = a } ;
+local a = { "c" } ; a.b = a ; a.b [ # a.b + 1 ] , d = function( e ) return e ; end , "f" ; for k , v in pairs ( a.b ) do print ( "- " .. k , # a ) ; end ; return { a = a } ;

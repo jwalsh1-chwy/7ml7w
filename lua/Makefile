@@ -11,3 +11,10 @@ init-wasm:
 
 ast:
 	node ast.js | jq
+
+rebuild:
+	cat ast-example.lua
+	lua ast-example.lua
+	node ast.js
+	node render-ast.js
+	lua rebuilt.lua
