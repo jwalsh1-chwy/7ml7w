@@ -130,6 +130,7 @@ elixir -v
 
 - https://julialang.org/
 - https://repl.it/languages/julia
+- https://www.youtube.com/playlist?list=PLP8iPy9hna6Tl2UHTrm4jnIYrLkIcAROR
 
 #+begin_src sh
 brew cask install julia
