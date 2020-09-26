@@ -53,7 +53,7 @@ lua -e 'print(math.sin(1))'
 * Parsing Lua
 
 #+begin_src lua
-local a = {} ; a.b = a a.b[#a.b + 1], d = function(e) return e end, "f" for k, v in pairs(a.b) do print(k .. "h", #a) end return { a = a}
+local a = {"c"} ; a.b = a a.b[#a.b + 1], d = function(e) return e end, "f" for k, v in pairs(a.b) do print("- " .. k, #a) end return { a = a}
 #+end_src
 
 This should be parsed as:
@@ -142,7 +142,16 @@ npx ./ast.js | jq
       "init": [
         {
           "type": "TableConstructorExpression",
-          "fields": []
+          "fields": [
+            {
+              "type": "TableValue",
+              "value": {
+                "type": "StringLiteral",
+                "value": null,
+                "raw": "\"c\""
+              }
+            }
+          ]
         }
       ]
     },
@@ -296,13 +305,13 @@ npx ./ast.js | jq
                 "type": "BinaryExpression",
                 "operator": "..",
                 "left": {
-                  "type": "Identifier",
-                  "name": "k"
-                },
-                "right": {
                   "type": "StringLiteral",
                   "value": null,
-                  "raw": "\"h\""
+                  "raw": "\"- \""
+                },
+                "right": {
+                  "type": "Identifier",
+                  "name": "k"
                 }
               },
               {

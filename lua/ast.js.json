@@ -213,6 +213,13 @@
                 "type": "Identifier",
                 "name": "a"
               }
+            },
+            {
+              "type": "TableValue",
+              "value": {
+                "type": "Identifier",
+                "name": "d"
+              }
             }
           ]
         }

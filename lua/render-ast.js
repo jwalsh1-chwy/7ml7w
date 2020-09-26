@@ -36,6 +36,10 @@ const render = (block, i) => {
     block.right.type ? render(block.right) : log(block.right)
     break;
 
+  case 'BooleanLiteral':
+    log(block.value ? block.value : block.raw)
+    break;
+
   case 'CallExpression':
     block.base ? render(block.base) : ''
     log('(')
@@ -58,6 +62,19 @@ const render = (block, i) => {
     log('end')
     break;
 
+  case 'ForNumericStatement':
+    log('for')
+    render(block.variable)
+    log('in')
+    render(block.start)
+    log(',')
+    render(block.end)
+    // TODO: step
+    log('do')
+    block['body'] ? block['body'].map(render) : ''
+    log('end')
+    break;
+
   case 'FunctionDeclaration':
     // log(block.indentifier, block.isLocal)
     log('function(')
@@ -69,6 +86,19 @@ const render = (block, i) => {
 
   case 'Identifier':
     block.name ? log(block.name) : ''
+    break;
+
+  case 'IfClause':
+    block.condition ? render(block.condition) : ''
+    log('do')
+    block['body'] ? block['body'].map(render) : ''
+    log('end')
+    break;
+
+  case 'IfStatement':
+    log('if')
+    block['clauses'] ? block['clauses'].map(render) : ''
+    log('end')
     break;
 
   case 'IndexExpression':
@@ -83,6 +113,13 @@ const render = (block, i) => {
     block.variables ? block.variables.map(render) : ''
     log('=')
     block.init ? block.init.map(render) :  ''
+    break;
+
+  case 'LogicalExpression':
+    // console.log(block)
+    block.left.type ? render(block.left) : log(block.left)
+    log(block.operator)
+    block.right.type ? render(block.right) : log(block.right)
     break;
 
   case 'MemberExpression': // Terminating
@@ -102,6 +139,14 @@ const render = (block, i) => {
     log(block.value ? block.value : block.raw)
     break;
 
+  case 'TableCallExpression':
+    block.base ? render(block.base) : ''
+    log('(')
+    // log(block['arguments'])
+    block['fields'] ? block['fields'].map(render) : ''
+    log(')')
+    break;
+
   case 'TableConstructorExpression':
     log('{')
     block['arguments'] ? block['arguments'].map(render) : ''
@@ -117,9 +162,21 @@ const render = (block, i) => {
     block.type ? render(block.value) : log(block)
     break;
 
+  case 'VarargLiteral':
+    log(block.value ? block.value : block.raw)
+    break;
+
   case 'UnaryExpression':
     log(`${block.operator}`)
     block.argument.type  ? render(block.argument) : log(block.argument)
+    break;
+
+  case 'WhileStatement':
+    log('while')
+    block.condition ? render(block.condition) : ''
+    log('do')
+    block['body'] ? block['body'].map(render) : ''
+    log('end')
     break;
 
   default:
