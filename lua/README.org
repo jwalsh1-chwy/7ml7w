@@ -296,99 +296,177 @@ npx ./ast.js | jq
 
 #+end_src
 
+
+
+
 ** Chunk
+
+
 *** LocalStatement 0
+
     local
+
 **** Identifier 0
+
      a
     =
+
 **** TableConstructorExpression 0
+
      {
      }
     ;
+
 *** AssignmentStatement 1
+
+
 **** MemberExpression 0
+
      a.b
     =
+
 **** Identifier 0
+
      a
     ;
+
 *** AssignmentStatement 2
+
+
 **** IndexExpression 0
+
+
 ***** MemberExpression
+
       a.b
      [
+
 ***** BinaryExpression
+
+
 ****** UnaryExpression
+
        #
+
 ******* MemberExpression
+
         a.b
       +
+
 ****** NumericLiteral
+
        1
      ]
+
 **** Identifier 1
+
      ,
      d
     =
+
 **** FunctionDeclaration 0
+
      function(
+
 ***** Identifier 0
+
       e
      )
+
 ***** ReturnStatement 0
+
       return
+
 ****** Identifier 0
+
        e
       ;
      end
+
 **** StringLiteral 1
+
      ,
      "f"
     ;
+
 *** ForGenericStatement 3
+
     for
+
 **** Identifier 0
+
      k
+
 **** Identifier 1
+
      ,
      v
     in
+
 **** CallExpression 0
+
+
 ***** Identifier
+
       pairs
      (
+
 ***** MemberExpression 0
+
       a.b
      )
     do
+
 **** CallStatement 0
+
+
 ***** CallExpression
+
+
 ****** Identifier
+
        print
       (
+
 ****** BinaryExpression 0
+
+
 ******* Identifier
+
         k
        ..
+
 ******* StringLiteral
+
         "h"
+
 ****** UnaryExpression 1
+
        ,
        #
+
 ******* Identifier
+
         a
       )
      ;
     end
     ;
+
 *** ReturnStatement 4
+
     return
+
 **** TableConstructorExpression 0
+
      {
+
 ***** TableKeyString 0
+
       a = a
      }
     ;
+
 ** Rebuilt
+
 local a = { } ; a.b = a ; a.b [ # a.b + 1 ] , d = function( e ) return e ; end , "f" ; for k , v in pairs ( a.b ) do print ( k .. "h" , # a ) ; end ; return { a = a } ;

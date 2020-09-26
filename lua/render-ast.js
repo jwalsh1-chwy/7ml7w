@@ -14,7 +14,9 @@ const log = (...args) => {
 
 const render = (block, i) => {
   prefix.push('')
+  console.log('')
   console.log(prefix.join('*'), block.type ? block.type : block, i >= 0 ? i : '')
+  console.log('')
   if (block.type && !block.type.includes("Statement") && i > 0) log(',')
   switch(block.type) {
   case 'Chunk':
@@ -122,9 +124,10 @@ const render = (block, i) => {
   }
   if (block.type && block.type.includes("Statement")) log(';')
   prefix.pop()
-
 }
 
 render(ast)
+console.log('')
 console.log('** Rebuilt')
+console.log('')
 console.log(source.join(' '))
