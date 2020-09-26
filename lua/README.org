@@ -307,19 +307,21 @@ npx ./ast.js | jq
     {
 
     }
+   ;
 ** AssignmentStatement 1
 *** MemberExpression
-    a . b
+    a.b
    =
 *** Identifier
     a
+   ;
 ** AssignmentStatement 2
 *** IndexExpression
 **** MemberExpression
-     a . b
+     a.b
     [
 **** StringLiteral
-     null "c"
+     "c"
     ]
 *** Identifier 1
     d
@@ -330,26 +332,36 @@ npx ./ast.js | jq
      e
     )
 **** ReturnStatement
+     return
 ***** Identifier
       e
+    end
 *** StringLiteral 1
-    null "f"
+    "f"
+   ;
 ** CallStatement 3
 *** CallExpression
 **** Identifier
      print
+    (
 **** CallExpression
 ***** MemberExpression
-      a . b
+      a.b
+     (
 ***** StringLiteral
-      null "g"
+      "g"
+     )
 **** UnaryExpression 1
-     # a
+     #a
+    )
 
 ** ReturnStatement 4
+   return
 *** TableConstructorExpression
     {
 
 **** TableKeyString
      a = a
     }
+* Rebuilt
+local a = {  } ; a.b = a ; a.b [ "c" ] d = function( e ) return e end "f" ; print ( a.b ( "g" ) #a )  return {  a = a }

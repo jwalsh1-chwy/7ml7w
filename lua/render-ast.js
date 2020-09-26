@@ -6,9 +6,10 @@ const renderVariable = (variable) => {
 }
 
 let prefix = ['']
-
+let source = []
 const log = (...args) => {
   console.log(prefix.join(' '), ...args)
+  source.push(...args)
 }
 
 const render = (block, i) => {
@@ -23,11 +24,14 @@ const render = (block, i) => {
     block.variables ? block.variables.map(render) : log('')
     log('=')
     block.init ? block.init.map(render) : log('')
+    log(';')
     break;
 
   case 'CallExpression':
     block.base ? render(block.base) : log('')
+    log('(')
     block.arguments ? block.arguments.map(render) : log('')
+    log(')')
     break;
 
   case 'CallStatement':
@@ -41,6 +45,7 @@ const render = (block, i) => {
     block.parameters ? block.parameters.map(render) : log('')
     log(')')
     block.body ? block.body.map(render) : log('')
+    log('end')
     break;
 
   case 'Identifier':
@@ -59,18 +64,21 @@ const render = (block, i) => {
     block.variables ? block.variables.map(render) : log('')
     log('=')
     block.init ? block.init.map(render) :  log('')
+    log(';')
     break;
 
   case 'MemberExpression': // Terminating
-    log(block.base.name, block.indexer, block.identifier.name)
+    log(`${block.base.name}${block.indexer}${block.identifier.name}`)
     break;
 
   case 'ReturnStatement':
+    log('return')
     block['arguments'] ? block['arguments'].map(render) : log('')
+    // log(';')
     break;
 
   case 'StringLiteral':
-    log(block.value, block.raw)
+    log(block.value ? block.value : block.raw)
     break;
 
   case 'TableConstructorExpression':
@@ -85,15 +93,17 @@ const render = (block, i) => {
     break;
 
   case 'UnaryExpression':
-    log(block.operator, block.argument.name)
+    log(`${block.operator}${block.argument.name}`)
     break;
 
   default:
     log('UnknownBlock')
-    log(block.arguments)
+    log(block)
   }
   prefix.pop()
 
 }
 
 render(ast)
+console.log('* Rebuilt')
+console.log(source.join(' '))
