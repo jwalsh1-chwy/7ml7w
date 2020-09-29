@@ -1,7 +1,16 @@
+local scheduler  = require('scheduler')
+
 local NOTE_DOWN = 0x90
 local NOTE_UP   = 0x80
 local VELOCITY  = 0x7f
 
+function play(note, duration)
+   midi_send(NOTE_DOWN, note, VELOCITY)
+   schedule.wait(duration)
+   midi_send(NOTE_UP, note, VELOCITY)
+end
+
+-- (string, int) => int
 local function note(letter, octave)
    local notes = {
       C = 1,
@@ -22,8 +31,10 @@ local function note(letter, octave)
    return (octave + 1) * notes_per_octave + notes[letter]
 end
 
-print(note("C", 1))
+print(note("C", 1), 25)
+print(note("As", 2), 46)
 
+-- (int) -> float
 function duration(value)
    local tempo = 100
    local quarter = 60 / tempo
@@ -37,15 +48,24 @@ function duration(value)
    return durations[value] * quarter
 end
 
-print(duration("ed"))
+print(duration("q"), 0.6)
 
-local function parse_note()
-
+-- (string) -> table
+local function parse_note(s)
+   -- print(s)
+   local letter, octave, value =
+      string.match(s, "([A-Gs]+)(%d+)(%a+)")
+   -- print(letter, octave, value)
+   if not letter and octave and value then
+      return nil
+   end
+      return {
+      note = note(letter, octave),
+      duration = duration(value),
+   }
 end
 
-local function play(note, duration)
-
-end
+print(parse_note("D3q"))
 
 local function part(t)
 
