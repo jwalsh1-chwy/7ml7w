@@ -7,3 +7,7 @@ init:
 hello-world:
 	export FACTOR_ROOTS=$(CURDIR)
 	/Applications/factor/Factor.app/Contents/MacOS/factor examples/hello/hello.factor
+
+greeter-tests:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/greeter/greeter-tests.factor
