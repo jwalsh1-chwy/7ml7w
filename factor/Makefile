@@ -11,3 +11,11 @@ hello-world:
 greeter-tests:
 	export FACTOR_ROOTS=$(CURDIR)
 	/Applications/factor/Factor.app/Contents/MacOS/factor examples/greeter/greeter-tests.factor
+
+strings-tests:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/strings/strings-tests.factor
+
+sequences-tests:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/sequences/sequences-tests.factor
