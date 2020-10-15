@@ -17,6 +17,7 @@ local function sort_by_time(array)
    end)
 end
 
+
 local function remove_first(array)
    first = array[1]
    array = array[#array]
@@ -24,7 +25,6 @@ local function remove_first(array)
    return first
 end
 
-print('first: ' .. remove_first({'first', 'second'}))
 
 local function run()
    while #pending > 0 do

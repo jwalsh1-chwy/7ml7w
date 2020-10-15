@@ -67,18 +67,44 @@ end
 
 print(parse_note("D3q"))
 
-local function part(t)
 
+local NOTE_DOWN = 0x90
+local NOTE_UP   = 0x80
+local VELOCITY  = 0x7f
+
+local function play(note, duration)
+   midi_send(NOTE_DOWN, note, VELOCITY)
+   scheduler.wait(duration)
+   midi_send(NOTE_UP, note, VELOCITY)
+end
+
+local mt = {
+   __index = function(t, s)
+      local result = parse_note(s)
+      return result or rawget(t, s)
+   end
+}
+
+setmetatable(_G, mt)
+
+
+local function part(t)
+   local function play_part()
+      for i = 1, #t do
+         play(t[i].note, t[i].duration)
+      end
+   end
+
+   scheduler.schedule(0.0, coroutine.create(play_part))
 end
 
 local function set_tempo(bpm)
-
+   tempo = bpm
 end
 
 local function go()
-
+   scheduler.run()
 end
-
 
 
 return {

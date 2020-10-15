@@ -29,6 +29,16 @@ function concatenate(a1, a2)
    return result
 end
 
+function contact_rm(a1, a2)
+   -- https://developer.roblox.com/en-us/api-reference/lua-docs/table
+   local result = a1
+   for k, v in pairs(a2) do
+      result[#result + 1] = table.remove(a2, 1)
+   end
+   return result
+
+end
+
 -- print_table(a1)
 
 b1 = concatenate(a1, a2)

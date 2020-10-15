@@ -1,0 +1,16 @@
+* Factor Version 0.98
+
+https://en.wikipedia.org/wiki/Factor_(programming_language)
+
+
+#+begin_quote
+Other important language features such as tuple classes, combinator inlining, macros, user-defined parsing words and the modern vocabulary system were only added in a piecemeal fashion as their utility became clear.
+
+#+end_quote
+
+
+* Stacks
+
+* Lists
+
+* Anonymous Functions
