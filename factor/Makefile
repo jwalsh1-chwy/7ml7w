@@ -19,3 +19,7 @@ strings-tests:
 sequences-tests:
 	export FACTOR_ROOTS=$(CURDIR)
 	/Applications/factor/Factor.app/Contents/MacOS/factor examples/sequences/sequences-tests.factor
+
+tuples-tests:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/tuples/tuples-tests.factor
