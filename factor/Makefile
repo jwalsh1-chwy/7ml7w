@@ -3,3 +3,7 @@ repl:
 
 init:
 	brew cask install factor
+
+hello-world:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/hello/hello.factor

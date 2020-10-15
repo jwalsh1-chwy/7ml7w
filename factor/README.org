@@ -1,16 +1,76 @@
 * Factor Version 0.98
 
-https://en.wikipedia.org/wiki/Factor_(programming_language)
-
+- https://factorcode.org/
+- https://en.wikipedia.org/wiki/Factor_(programming_language)
+- https://planet.factorcode.org/
 
 #+begin_quote
 Other important language features such as tuple classes, combinator inlining, macros, user-defined parsing words and the modern vocabulary system were only added in a piecemeal fashion as their utility became clear.
 
 #+end_quote
 
+- https://andreaferretti.github.io/factor-tutorial/
+- https://github.com/factor/factor
+
+* Datatypes
+
 
 * Stacks
 
-* Lists
+* Calling and Arity
 
-* Anonymous Functions
+- + : number number
+- reduce : list acc lambda
+
+* Ranges
+
+* Sequences
+
+* Maps
+
+* Quotations and Anonymous Functions
+
+* Named functions
+
+#+begin_src forth
+: fact ( n -- n! ) [1,b] 1 [ * ] reduce ;
+#+end_src
+
+* Stack Shuffling
+
+* Vocabularies
+
+- help
+- io
+- kernel
+- listener
+- math
+- memory
+- parser
+- see
+- sequences
+- slicing
+- sorting
+- strings
+- syntax
+- tools
+- vocabs
+- words
+
+* Inputs and Outputs
+
+* Symbols
+The following are available for symbols:
+
+** Boolean (flag)
+
+- on
+- get .
+- toggle
+- off
+
+** Integer (counter)
+
+- inc
+- get .
+- dec
