@@ -1,3 +1,6 @@
+CONSTANT: gst-rate 0.05
+CONSTANT: pst-rate 0.09975
+
 : sum ( seq -- n ) 0 ;
 
 : cart-item-count ( cart -- count ) 0 ;
