@@ -23,3 +23,13 @@ sequences-tests:
 tuples-tests:
 	export FACTOR_ROOTS=$(CURDIR)
 	/Applications/factor/Factor.app/Contents/MacOS/factor examples/tuples/tuples-tests.factor
+
+
+checkout-tests:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/checkout/checkout-tests.factor
+
+
+fizzbuzz:
+	export FACTOR_ROOTS=$(CURDIR)
+	/Applications/factor/Factor.app/Contents/MacOS/factor examples/fizzbuzz/fizzbuzz.factor

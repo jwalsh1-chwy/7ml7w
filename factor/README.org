@@ -14,7 +14,6 @@ Other important language features such as tuple classes, combinator inlining, ma
 
 * Datatypes
 
-
 * Stacks
 
 * Calling and Arity
@@ -28,15 +27,7 @@ Other important language features such as tuple classes, combinator inlining, ma
 
 * Maps
 
-* Quotations and Anonymous Functions
-
-* Named functions
-
-#+begin_src forth
-: fact ( n -- n! ) [1,b] 1 [ * ] reduce ;
-#+end_src
-
-* Stack Shuffling
+* Words and Quotations
 
 * Vocabularies
 
@@ -57,6 +48,11 @@ Other important language features such as tuple classes, combinator inlining, ma
 - vocabs
 - words
 
+#+begin_src forth
+: fact ( n -- n! ) [1,b] 1 [ * ] reduce ;
+#+end_src
+
+* Stack Shuffling
 * Inputs and Outputs
 
 * Symbols
