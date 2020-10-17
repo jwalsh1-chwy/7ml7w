@@ -130,19 +130,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named web
-
-# Build rule for target.
-web: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 web
-.PHONY : web
-
-# fast build rule for target.
-web/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/web.dir/build.make CMakeFiles/web.dir/build
-.PHONY : web/fast
-
-#=============================================================================
 # Target rules for targets named play
 
 # Build rule for target.
@@ -182,33 +169,6 @@ play.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/play.dir/build.make CMakeFiles/play.dir/play.cpp.s
 .PHONY : play.cpp.s
 
-web.o: web.cpp.o
-
-.PHONY : web.o
-
-# target to build an object file
-web.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/web.dir/build.make CMakeFiles/web.dir/web.cpp.o
-.PHONY : web.cpp.o
-
-web.i: web.cpp.i
-
-.PHONY : web.i
-
-# target to preprocess a source file
-web.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/web.dir/build.make CMakeFiles/web.dir/web.cpp.i
-.PHONY : web.cpp.i
-
-web.s: web.cpp.s
-
-.PHONY : web.s
-
-# target to generate assembly for a file
-web.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/web.dir/build.make CMakeFiles/web.dir/web.cpp.s
-.PHONY : web.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -218,13 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... play"
-	@echo "... web"
 	@echo "... play.o"
 	@echo "... play.i"
 	@echo "... play.s"
-	@echo "... web.o"
-	@echo "... web.i"
-	@echo "... web.s"
 .PHONY : help
 
 

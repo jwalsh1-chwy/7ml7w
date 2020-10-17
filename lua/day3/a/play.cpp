@@ -34,7 +34,7 @@ int main(int argc, const char* argv[])
   unsigned int ports = midi.getPortCount();
   if (ports < 1) { return -1; }
 
-  printf("LuaPlay");
+  // printf("LuaPlay");
 
   midi.openPort(0);
 
@@ -43,8 +43,6 @@ int main(int argc, const char* argv[])
 
   lua_pushcfunction(L, midi_send);
   lua_setglobal(L, "midi_send");
-
-  luaL_dostring(L, "print('Getting ready to play')");
 
   luaL_dofile(L, argv[1]);
 
