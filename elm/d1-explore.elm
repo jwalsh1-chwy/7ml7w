@@ -13,6 +13,11 @@ main =
 
 add a b = a + b
 inc = (add 1)
+double n = 2 * n
+
+twelve = 5 |> inc |> double
+
+l = List.map double [1, 2, 3]
 
 -- True && not (True || False)
 -- (2 + 4) * (4^2 - 9)

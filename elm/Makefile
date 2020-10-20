@@ -11,3 +11,6 @@ setup:
 
 main:
 	elm make src/Main.elm
+
+homepage:
+	elm make src/HomePage.elm --output elm.js
