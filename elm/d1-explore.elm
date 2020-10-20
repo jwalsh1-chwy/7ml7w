@@ -1,7 +1,14 @@
-import Html
+module DayOne exposing (main)
+
+import Html exposing (..)
+import Html.Attributes exposing (..)
 
 main =
-    Html.text "Hello!"
+    div [ class "header" ]
+        [
+         h1 [] [ text "Seven More Languages in Seven Weeks" ],
+         div [] [text c]
+        ]
 
 
 add a b = a + b
@@ -9,7 +16,7 @@ inc = (add 1)
 
 -- True && not (True || False)
 -- (2 + 4) * (4^2 - 9)
-c = "abc" ++ "def"
+c = "7ml" ++ "7w"
 
 d = [1,2,3,4]
 e = 1 :: [2,3,4]
