@@ -6,6 +6,18 @@ a = [1, 2, 3]
 
 b = [1, 2] ++ [3, 4]
 
+-- case b of \
+--     head::tail -> tail \
+--     [] -> []
+
+getWidth maybeWidth =
+    case maybeWidth of
+        Just width ->
+            width + 200
+
+        Nothing ->
+          400
+
 greet : String -> String
 greet name =
     "Hello " ++ name ++ "!"
@@ -13,6 +25,10 @@ greet name =
 type User = Anonymous | LoggedIn String
 
 x = 0
+
+-- if | x < 0 -> "too small" \
+--    | x > 0 -> "too large" \
+--    | otherwise -> "just right"
 
 type Color = Black  | White
 type Piece = Pawn | Knight | Bishop | Rook | Queen | King
