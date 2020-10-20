@@ -26,9 +26,9 @@ type User = Anonymous | LoggedIn String
 
 x = 0
 
--- if | x < 0 -> "too small" \
---    | x > 0 -> "too large" \
---    | otherwise -> "just right"
+if x < 0 -> "too small"
+   | x > 0 -> "too large"
+   | otherwise -> "just right"
 
 type Color = Black  | White
 type Piece = Pawn | Knight | Bishop | Rook | Queen | King
