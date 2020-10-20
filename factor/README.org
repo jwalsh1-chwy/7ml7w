@@ -16,6 +16,15 @@ Other important language features such as tuple classes, combinator inlining, ma
 
 * Stacks
 
+* Higher-order Words
+
+- swap
+- dup
+- bi
+- tri
+- dip
+- keep
+
 * Calling and Arity
 
 - + : number number
@@ -72,3 +81,4 @@ The following are available for symbols:
 - dec
 
 * Tuples
+* Pipelines

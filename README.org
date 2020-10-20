@@ -8,6 +8,18 @@
 }
 #+end_src
 
+#+begin_example
+elixir 1.11.1
+elm 0.19.1
+erlang 23.1.1
+idris current
+julia 1.5.1
+lua 5.3.5
+nodejs 12.18.1
+python 3.7.8
+ruby 2.7.2
+#+end_example
+
 * [#C] Lua 5.3.5                                                        :tcl:
 
 - https://www.lua.org/
