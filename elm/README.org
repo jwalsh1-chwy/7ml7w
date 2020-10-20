@@ -1,3 +1,4 @@
 * References
 
 - https://elm-lang.org/docs/syntax
+- https://github.com/jcollard/elm-mode

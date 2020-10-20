@@ -1,0 +1,69 @@
+
+d1-explore.elm,764
+main =main3,13
+add a b =add7,45
+inc =inc8,61
+c =c12,130
+d =d14,150
+e =e15,164
+f =f16,181
+origin = { x = 0, y =origin37,471
+point = { x = 3, y =point38,497
+-- origin.x ==--41,540
+-- point.x ==--42,557
+-- List.map .x [ origin, point ] ==--45,599
+-- { point | x = 6 } == { x = 6, y =--48,663
+-- { point | x = point.x + 1, y =--51,727
+square n =square53,776
+hypotenuse a b =hypotenuse56,796
+distance (a,b) (x,y) =distance59,845
+squares =squares62,898
+viewNames1 names =viewNames166,954
+viewNames2 names =viewNames269,1013
+--     twentyFour =--76,1100
+--     sixteen =--79,1138
+append sxs sys =append86,1251
+xs =xs88,1280
+ys =ys89,1293
+-- a1 =--92,1359
+a2 =a293,1380
+b2 =b295,1395
+c1 =c197,1412
+c2 =c298,1432
+
+src/Main.elm,385
+module MainMain1,0
+a =a3,27
+-- a[2] =--4,41
+-- a[5] =--5,53
+b =b7,66
+getWidth maybeWidth =getWidth13,148
+greet name =greet22,299
+type User =type25,341
+type UserUser25,341
+x =x27,382
+type Color =type33,471
+type ColorColor33,471
+type Piece =type34,499
+type PiecePiece34,499
+type ChessPiece =type35,557
+type ChessPieceChessPiece35,557
+-- color =--37,591
+
+howMany.elm,0
+
+minDiff.elm,0
+
+d1.elm,0
+
+d2.elm,0
+
+reverseArray.elm,0
+
+d3.elm,0
+
+minSum.elm,0
+
+counter.elm,0
+
+d3-explore.elm,0
