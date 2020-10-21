@@ -3,6 +3,8 @@ product list =
         [] -> 1
         head::tail -> head * product tail
 
+-- first (head:tail) = head
+
 six = product [1,2,3]
 
 multiply x y = x * y

@@ -2,3 +2,4 @@
 
 - https://elm-lang.org/docs/syntax
 - https://github.com/jcollard/elm-mode
+- https://github.com/rofrol/elm-ui-cookbook
