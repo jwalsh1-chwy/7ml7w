@@ -3,3 +3,4 @@
 - https://elm-lang.org/docs/syntax
 - https://github.com/jcollard/elm-mode
 - https://github.com/rofrol/elm-ui-cookbook
+- https://github.com/elm-lang/core/tree/3.0.0
