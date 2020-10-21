@@ -1,3 +1,4 @@
+
 product list =
     case list of
         [] -> 1

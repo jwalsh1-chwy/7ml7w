@@ -4,3 +4,8 @@
 - https://github.com/jcollard/elm-mode
 - https://github.com/rofrol/elm-ui-cookbook
 - https://github.com/elm-lang/core/tree/3.0.0
+
+
+* Updates for Elm 0.17
+
+- https://mindbat.com/2017/01/30/seven-more-languages-in-seven-weeks-elm/
