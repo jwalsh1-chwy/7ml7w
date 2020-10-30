@@ -6,8 +6,32 @@ brew install kotlin python swift typescript
 
 ** Kotlin
 
+*** Day 1 Documentation and Language Similarities
+
+*** Day 2 Advanced Language Features
+
+*** Day 3 Large Project with ALF
+
 ** Python
+
+*** Day 1 Documentation and Language Similarities
+
+*** Day 2 Advanced Language Features
+
+*** Day 3 Large Project with ALF
 
 ** Swift
 
+*** Day 1 Documentation and Language Similarities
+
+*** Day 2 Advanced Language Features
+
+*** Day 3 Large Project with ALF
+
 ** TypeScript
+
+*** Day 1 Documentation and Language Similarities
+
+*** Day 2 Advanced Language Features
+
+*** Day 3 Large Project with ALF
