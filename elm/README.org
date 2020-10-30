@@ -9,3 +9,5 @@
 * Updates for Elm 0.17
 
 - https://mindbat.com/2017/01/30/seven-more-languages-in-seven-weeks-elm/
+
+* Main, Model, Update, View
