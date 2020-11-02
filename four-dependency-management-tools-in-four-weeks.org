@@ -1,0 +1,21 @@
+** Carthage
+
+** Gradle
+
+- Install Material Components for Android
+
+** Pip
+
+- Install development dependencies
+
+** NPM
+
+- Install RxJS 6 but allow upgrades for patch versions
+
+- Create an alias to not upgrade a lock
+
+** Yarn
+
+- Install Jest as a development dependency
+
+- Show the dependency tree for Jest
