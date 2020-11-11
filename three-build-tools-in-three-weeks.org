@@ -1,7 +1,0 @@
-** Docker
-
-** WebPack
-
-** Gradle
-
-** Make

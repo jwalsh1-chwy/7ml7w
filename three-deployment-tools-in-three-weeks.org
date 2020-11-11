@@ -1,9 +1,0 @@
-** Kubernetes
-
-- Install https://helm.sh/docs/intro/quickstart/
-
-** Terraform
-
-- https://www.terraform.io/intro/examples/aws.html
-
-** Ansible

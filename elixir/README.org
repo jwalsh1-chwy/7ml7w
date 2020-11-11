@@ -1,0 +1,36 @@
+* Elixir
+
+- https://elixir-lang.org/
+- https://www.phoenixframework.org/
+
+- https://vimeo.com/ondemand/elixirconfus2020
+
+- https://github.com/elixir-editors/emacs-elixir
+- https://github.com/Fuco1/smartparens
+- https://github.com/tonini/alchemist.el
+
+#+begin_src elisp
+(add-hook 'elixir-mode-hook #'smartparens-mode)
+
+#+end_src
+
+- https://elixir-lang.org/getting-started/basic-types.html
+- https://elixir-lang.org/getting-started/modules-and-functions.html
+
+
+** Day 1
+
+- actors
+- message passing
+- functional programming
+- immutability
+- pipes
+- modules
+
+* Versions
+
+- https://github.com/elixir-lang/elixir/releases
+
+** 1.11
+
+- Erlang integration

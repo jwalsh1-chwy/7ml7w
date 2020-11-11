@@ -1,7 +1,0 @@
-** Blame
-
-** Revert
-
-** Log
-
-** Diff

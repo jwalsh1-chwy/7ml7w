@@ -1,5 +1,0 @@
-** CircleCI
-
-** Jenkins
-
-** AWS CodeDeploy

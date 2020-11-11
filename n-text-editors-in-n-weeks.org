@@ -1,9 +1,0 @@
-** Emacs
-
-** IntelliJ
-
-** Pycharm
-
-** Vim
-
-** Xcode
