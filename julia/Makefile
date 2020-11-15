@@ -9,6 +9,9 @@ init:
 link:
 	ln -sf  /usr/local/Caskroom/julia/1.5.3/Julia-1.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia || true
 
+notebook-julia:
+	julia notebook.jl
+
 notebook:
 	jupyter notebook
 
