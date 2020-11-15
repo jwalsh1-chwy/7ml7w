@@ -1,3 +1,64 @@
 * Genetic Algorithms in Elixir
 
 - https://pragprog.com/titles/smgaelixir/genetic-algorithms-in-elixir/
+
+** Writing Your First Genetic Algorithm
+
+#+begin_src elixir
+population # Initial Population
+|> evaluate.() # Evaluate Population
+|> selection.() # Select Parents
+|> crossover.() # Create Children
+|> algorithm.(algorithm) # Repeat the Process with new Population
+#+end_src
+
+** Breaking Down Genetic Algorithms
+
+#+begin_src dot
+digraph G {
+population -> evolve -> new -> termination -> {
+evolve;
+best;
+}
+evolve -> select -> crossover -> mutation -> evolve;
+#+end_src
+
+** Encoding Problems and Solutions
+
+#+begin_src elixir
+defmodule Types.Chromosome do
+defstruct [:genes, :size, :fitness, :age]
+end
+#+end_src
+
+** Evaluating Solutions and Populations
+
+
+** Selecting the Best
+
+** Generating New Solutions
+
+** Preventing Premature Convergence
+
+#+begin_src elixir
+def gaussian(chromosome) do
+mu = Enum.sum(chromosome.genes) / length(chromosome.genes)
+sigma =
+chromosome.genes
+|> Enum.map(fn x -> (mu - x) * (mu - x) end)
+|> Enum.sum()
+|> Kernel./(length(chromosome.genes))
+genes =
+chromosome.genes
+|> Enum.map(fn _ ->
+:rand.normal(mu, sigma)
+end)
+%Chromosome{genes: genes, size: chromosome.size}
+end
+#+end_src
+
+** Replacing and Transitioning
+
+** Tracking Genetic Algorithms
+
+** Visualizing the Results
