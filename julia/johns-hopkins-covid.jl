@@ -64,11 +64,11 @@ start = time()
 
 burl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/";
 fname = "csse_covid_19_time_series/time_series_covid19_confirmed_US.csv";
-
-covidcases = CSV.read(download(string(burl,fname)));
-metaj(covidcases)
-
+mv(download(string(burl,fname)), fname, force=true)
 @timend
+print(fname)
 
+covidcases = CSV.read(fname, DataFrame);
+metaj(covidcases)
 
 print(last(covidcases[:,[1,2,3,4,5,6,7,8]],15))

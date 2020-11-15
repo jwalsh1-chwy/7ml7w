@@ -50,3 +50,8 @@ Pkg.build("RCall")
 ** Notebook
 
    https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_for_Pythonistas.ipynb
+
+
+#+begin_src sh
+make notebook
+#+end_src
