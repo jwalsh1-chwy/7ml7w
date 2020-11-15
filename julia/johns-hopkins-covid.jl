@@ -42,4 +42,33 @@ function metaj(df;data=false)
     pr(2)
 end
 
-pr(2)
+
+function frequencies(df,vars)
+    freqs = combine(DataFrames.groupby(df, vars), nrow)
+    freqs = DataFrames.rename(freqs, :nrow => :count);
+    freqs[!,:percent] = 100*freqs.count/sum(freqs.count);
+    sort!(freqs, [DataFrames.order(:count, rev = true)]);
+    return(freqs)
+end
+
+function sumna(vec) return(sum(skipmissing(vec))) end
+
+function mknames(df)
+    from = names(df);
+    to = [Symbol(replace(lowercase(string(f))," " => "")) for f in from];
+    to = [Symbol(replace(lowercase(string(t)),"_" => "")) for t in to];
+    return(to)
+end
+
+start = time()
+
+burl = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/";
+fname = "csse_covid_19_time_series/time_series_covid19_confirmed_US.csv";
+
+covidcases = CSV.read(download(string(burl,fname)));
+metaj(covidcases)
+
+@timend
+
+
+print(last(covidcases[:,[1,2,3,4,5,6,7,8]],15))

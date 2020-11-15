@@ -32,3 +32,21 @@ df = DataFrame(A = 1:4, B = ["M", "F", "F", "M"])
 #+end_src
 
 [[./term.png]]
+
+** R
+
+- https://stackoverflow.com/questions/20457290/installing-r-with-homebrew
+
+#+begin_src shell
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/Cellar/r/4.0.1/lib/R/lib
+#+end_src
+
+#+begin_src
+using Pkg
+Pkg.build("RCall")
+
+#+end_src
+
+** Notebook
+
+   https://colab.research.google.com/github/ageron/julia_notebooks/blob/master/Julia_for_Pythonistas.ipynb
