@@ -2,3 +2,4 @@ minikanren/logical/.lein-repl-history
 minikanren/logical/target/
 elixir/deps/
 julia/.ipynb_checkpoints/
+julia/data/
