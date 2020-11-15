@@ -1,2 +1,3 @@
-*
-https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/
+* Genetic Algorithms in Elixir
+
+- https://pragprog.com/titles/smgaelixir/genetic-algorithms-in-elixir/

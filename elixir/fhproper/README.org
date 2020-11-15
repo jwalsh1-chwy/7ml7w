@@ -1,1 +1,3 @@
-https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/
+* Property-Based Testing with PropEr, Erlang, and Elixir
+
+- https://pragprog.com/titles/fhproper/property-based-testing-with-proper-erlang-and-elixir/

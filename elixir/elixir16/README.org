@@ -98,3 +98,56 @@ https://pragprog.com/titles/elixir16/programming-elixir-1-6/
   Pairs.reduce([1,2,3,4,5], 0, &(&1 + &2))
   Pairs.reduce([1,2,3,4,5], 1, &(&1 * &2))
 #+end_src
+
+
+** Maps, Keyword Lists, Sets, and Structs
+
+
+#+begin_src elixir
+  map = %{ name: "Jason", where: "Boston" }
+  Map.keys map
+
+  # https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/at.1.json
+  fb = ~s({
+    "name": "Bundesliga 2020/21",
+    "matches": [
+      {
+        "stage": "Grunddurchgang",
+        "round": "1. Runde",
+        "date": "2020-09-11",
+        "team1": "SK Rapid Wien",
+        "team2": "FC Admira Wacker Mödling",
+        "score": {
+          "ft": [
+            4,
+            1
+          ]
+        }
+      },
+      {
+        "stage": "Grunddurchgang",
+        "round": "1. Runde",
+        "date": "2020-09-11",
+        "team1": "LASK Linz",
+        "team2": "FK Austria Wien",
+        "score": {
+          "ft": [
+            1,
+            0
+          ]
+        }
+      },
+      {
+        "stage": "Grunddurchgang",
+        "round": "1. Runde",
+        "date": "2020-09-12",
+        "team1": "SCR Altach",
+        "team2": "TSV Hartberg",
+        "score": {
+          "ft": [
+            1,
+            1
+          ]
+        }
+      }]})
+#+end_src
