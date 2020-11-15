@@ -1,0 +1,100 @@
+* Programming Elixir 1.6
+
+https://pragprog.com/titles/elixir16/programming-elixir-1-6/
+
+** Take the Red Pill
+
+** Pattern Matching
+
+#+begin_src elixir
+  [1, a, 3] = [1, 2, 3]
+#+end_src
+
+** Immutability
+
+** Elixir Basics
+
+#+begin_src elixir
+  Regex.scan ~r{[aeiou]}, "caterpillar"
+  {status, count, action} = {:ok, 42, "next"}
+  [ 1, 2, 3 ] ++ [ 4, 5, 6 ]
+  colors = %{ :red => 0xff0000, :green => 0x00ff00, :blue => 0x0000ff }
+  d1 = Date.new(2018, 12, 25)
+#+end_src
+
+
+** Anonymous Functions
+
+#+begin_src elixir
+  sum = fn(a, b) -> a + b end
+
+  swap = fn{a, b} -> { b, a } end
+
+  greet_generator = fn(name) ->
+    fn() ->
+      name
+    end
+  end
+
+  fizz_buzz = fn
+    (0, 0, _) -> "FizzBuzz"
+    (0, _, _) -> "Fizz"
+    (_, 0, _) -> "Buzz"
+    (_, _, c) -> c
+  end
+
+  fizz_buzz.(rem(30, 3), rem(30, 5), 30)
+#+end_src
+
+
+** Modules and Named Functions
+
+
+#+begin_src elixir
+  defmodule Times do
+    def double(n) do
+      2 * n
+    end
+  end
+
+  Times.double(4)
+
+  # warning: def of/1 has multiple clauses and also declares default values.
+  defmodule Factorial do
+    def of(1) do
+      1
+    end
+    def of(n \\ 100) when is_integer(n) and n > 0 do
+      n * of(n -  1)
+    end
+  end
+
+  Factorial.of(6)
+
+  # double even sum
+  (1..10) |> Enum.filter(&(rem(&1, 2) == 0)) |> Enum.map(&(&1* 2)) |> Enum.sum()
+#+end_src
+
+** Lists and Recursion
+
+#+begin_src elixir
+  defmodule Pairs do
+    def len([]) do
+      0
+    end
+    def len([_first | rest]) do
+      1 + len(rest)
+    end
+    def reduce([], acc, _lambda) do
+      acc
+    end
+    def reduce([first | rest], acc, lambda) do
+      reduce(rest, lambda.(first, acc), lambda)
+    end
+  end
+
+  Pairs.len( [11, 12, 13, 14, 15])
+
+  Pairs.reduce([1,2,3,4,5], 0, &(&1 + &2))
+  Pairs.reduce([1,2,3,4,5], 1, &(&1 * &2))
+#+end_src

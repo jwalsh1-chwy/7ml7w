@@ -1,6 +1,8 @@
 * Elixir
 
 - https://elixir-lang.org/
+- https://hexdocs.pm/elixir/Enum.html
+
 - https://www.phoenixframework.org/
 
 - https://vimeo.com/ondemand/elixirconfus2020
