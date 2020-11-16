@@ -4,9 +4,10 @@
 - https://julialang.org/downloads/platform/
 - https://juliadata.github.io/DataFrames.jl/stable/
 
-
 - https://github.com/JuliaEditorSupport/julia-emacs/blob/master/julia-mode.el
 - https://www.julia-vscode.org/
+
+- https://github.com/CSSEGISandData/COVID-19
 
 ** Setup
 
