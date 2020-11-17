@@ -2,6 +2,7 @@
 
 - https://github.com/swannodette/logic-tutorial
 - https://github.com/webyrd/Barliman
+- https://github.com/clojure/core.logic/tree/master/src/main/clojure/clojure/core/logic
 
 ** Day 1: Unified Theories of Code
 
