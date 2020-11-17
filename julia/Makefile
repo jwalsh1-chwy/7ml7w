@@ -21,3 +21,6 @@ setup: init deps
 
 johns-hopkins-covid:
 	julia johns-hopkins-covid.jl
+
+distributed:
+	julia -p 4 howMany.jl
