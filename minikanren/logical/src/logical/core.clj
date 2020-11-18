@@ -79,6 +79,25 @@
   (run 5 [q]
     (firsto q "a"))
 
+  (run* [q]
+    (conso :a [:b :c] q))
+
+  (run* [q]
+    (conso :a q [:a :b :c]))
+
+  (defn insideo [e l]
+    (conde
+     [(fresh [h t]
+        (conso h t l)
+        ((== h e)))]
+     [(fresh [h t]
+        (conso h t l)
+        (insideo e t))]))
+
+  ;; todo
+  (run* [q]
+    (insideo q [:a :b :c]))
+
   ))
 
 (quote
