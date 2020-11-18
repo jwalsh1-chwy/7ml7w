@@ -10,6 +10,7 @@
   [& args]
   (println "miniKanren"))
 
+;; Relations
 (quote
  (
   (run* [q] (== q 1))
@@ -85,21 +86,36 @@
   (run* [q]
     (conso :a q [:a :b :c]))
 
-  (defn insideo [e l]
-    (conde
-     [(fresh [h t]
-        (conso h t l)
-        ((== h e)))]
-     [(fresh [h t]
-        (conso h t l)
-        (insideo e t))]))
+  ;; (defn insideo [e l]
+  ;;   (conde
+  ;;    [(fresh [h t]
+  ;;       (conso h t l)
+  ;;       ((== h e)))]
+  ;;    [(fresh [h t]
+  ;;       (conso h t l)
+  ;;       (insideo e t))]))
 
-  ;; todo
+  ;; (defn insideo [e l]
+  ;;   (matche [l]
+  ;;           ([[e . _]])
+  ;;           ([[_ . t]] (insideo e t))))
+
+  (defne insideo [e l]
+    ([_ [e . _]])
+    ([_ [_ . t]] (insideo e t)))
+
   (run* [q]
     (insideo q [:a :b :c]))
 
+  (run 3 [q]
+    (insideo :a q))
+
+  (run* [q]
+    (insideo :b [:a q :c]))
+
   ))
 
+;; Databases
 (quote
  (
   (db-rel mano x)
