@@ -9,3 +9,17 @@
 ** Day 2: Mixing the Logical and Functional
 
 ** Day 3: Writing Stories with Logic
+
+* core.logic
+
+- https://clojuredocs.org/clojure.core.logic
+- https://github.com/clojure/core.logic/blob/master/src/main/clojure/clojure/core/logic.clj
+
+** Suffixes
+
+| o | relation        |
+| a | soft goal       |
+| g | psuedo relation |
+| u | committed       |
+| e |                 |
+| c | constraint      |
