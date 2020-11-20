@@ -14,6 +14,7 @@
 
 - https://clojuredocs.org/clojure.core.logic
 - https://github.com/clojure/core.logic/blob/master/src/main/clojure/clojure/core/logic.clj
+- http://mullr.github.io/micrologic/literate.html
 
 ** Suffixes
 
@@ -48,3 +49,24 @@ echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
 #+end_src
 
 #+RESULTS:
+* Book Club
+
+- https://calva.io/ : Clojure support in VSCode
+
+- http://danmidwood.com/content/2014/11/21/animated-paredit.html and https://calva.io/paredit/ : editor support for dealing with parenthesis
+
+- http://tca.github.io/veneer/editor.html : miniKanren in JavaScript
+
+- https://github.com/jtauber/pykanren/blob/master/kanren.py : ...in Python
+
+- https://www.youtube.com/watch?v=7kPMFkNm2dw : live coding core.logic
+
+- https://www.youtube.com/watch?v=rI8tNMsozo0 : easy vs. simplicity when thinking of code as trees
+
+- https://youtu.be/MnrRUdbOW1M?t=694 : on introducing syntax, editors, and programming concepts as a pedagogical anti-pattern
+
+- https://icfp20.sigplan.org/home/minikanren-2020 : recent talk on miniKanren
+
+- https://github.com/webyrd/mediKanren : implementation of logic programming for health
+
+- https://www.uab.edu/news/research/item/10382-a-high-speed-dr-house-for-medical-breakthroughs : logic programming and diagnosis

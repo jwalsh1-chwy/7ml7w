@@ -10,12 +10,12 @@
   [& args]
   (println "miniKanren"))
 
+
 ;; Relations
 (quote
  (
   (run* [q]
     (== q 1))
-
 
   (run* [q]
     (== 2 1))
@@ -24,8 +24,8 @@
     (== q 1)
     (== q 2))
 
-  (run 2 [q]
-    (membero q [1 2 3]))
+  (run 5 [q]
+    (membero 1 [5 q 3]))
 
   (run 3 [q]
     (== q '(1 3 6)))
@@ -126,11 +126,17 @@
   (run 1 [q]
     (success))
 
+
+  (def teacupo []
+    (lambda [x]
+            (conde)))
+
   ))
 
 ;; Databases
 (quote
  (
+
   (db-rel mano x)
   (db-rel womano x)
   (db-rel languageo p l)
@@ -218,7 +224,6 @@
 (def blank-board
   (into [] (take 81 (repeat 0))))
 
-
 ;; https://gist.github.com/orb/5884956
 (defn init-board [vars puzzle]
   (matche [vars puzzle]
@@ -235,7 +240,6 @@
         board (repeatedly 81 lvar)
         rows (into [] (map vec (partition 9 board)))
         cols (apply map vector rows)
-
         get-square (fn [x y]
                      (for [x (range x (+ x 3))
                            y (range y (+ y 3))]
@@ -244,7 +248,6 @@
         squares (for [x (range 0 9 3)
                       y (range 0 9 3)]
                   (get-square x y))]
-
     (run* [q]
       (== q board)
       (everyg #(fd/in % sdnum) board)
@@ -290,6 +293,7 @@
 
 (comment
   (partition 9 (first (solve puzzle1)))
+
   ((7 1 4 2 8 9 5 6 3)
    (6 3 8 7 1 5 9 2 4)
    (9 2 5 3 6 4 1 7 8)
@@ -301,6 +305,8 @@
    (3 7 2 8 5 1 6 4 9))
 
   (partition 9 (first (solve puzzle2)))
+
+
   ((4 3 6 5 9 1 2 8 7)
    (7 5 1 8 6 2 9 3 4)
    (8 2 9 4 7 3 5 6 1)
