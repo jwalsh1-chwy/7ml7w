@@ -13,15 +13,25 @@
 ;; Relations
 (quote
  (
-  (run* [q] (== q 1))
+  (run* [q]
+    (== q 1))
 
-  (run* [q] (== 2 1))
 
-  (run* [q] (== q 1) (== q 2))
+  (run* [q]
+    (== 2 1))
 
-  (run 2 [q] (membero q [1 2 3]))
+  (run* [q]
+    (== q 1)
+    (== q 2))
 
-  (run* [q] (== q "corn"))
+  (run 2 [q]
+    (membero q [1 2 3]))
+
+  (run 3 [q]
+    (== q '(1 3 6)))
+
+  (run* [q]
+    (== q "corn"))
 
   (run* [q]
     (let [x "apple"]
@@ -112,6 +122,9 @@
 
   (run* [q]
     (insideo :b [:a q :c]))
+
+  (run 1 [q]
+    (success))
 
   ))
 

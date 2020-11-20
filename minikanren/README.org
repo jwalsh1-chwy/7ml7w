@@ -24,11 +24,17 @@
 | e |                 |
 | c | constraint      |
 
+** logic.clj
+
+- Utilities
+- Pair
+- Constraint Store
+- SubstValue
+- Substitutions
+
 * The Reasoned Schemer
 
 - Run Geiser with Chez Scheme on the following:
-
-
 
 #+begin_src sh
 brew install chezscheme
