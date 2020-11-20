@@ -18,9 +18,9 @@ true
   (== true q))
 
 ;; todo: validate succeed
-(run* [q]
-  (succeed q)
-  (== q true))
+;; (run 1 [q]
+;;   (succeed q)
+;;   (== q true))
 
 
 

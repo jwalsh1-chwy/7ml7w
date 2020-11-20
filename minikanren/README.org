@@ -23,3 +23,22 @@
 | u | committed       |
 | e |                 |
 | c | constraint      |
+
+* The Reasoned Schemer
+
+- Run Geiser with Chez Scheme on the following:
+
+
+
+#+begin_src sh
+brew install chezscheme
+cd ~/sandbox
+git clone git@github.com:TheReasonedSchemer2ndEd/CodeFromTheReasonedSchemer2ndEd.git
+cd CodeFromTheReasonedSchemer2ndEd
+echo '(load "trs2-impl.scm")' > repl.scm
+echo "(run* q (== 'pasta q))" >> repl.scm
+echo '(load "trs2-arith.scm")' >> repl.scm
+echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
+#+end_src
+
+#+RESULTS:
