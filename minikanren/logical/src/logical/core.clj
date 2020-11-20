@@ -1,7 +1,7 @@
 (ns logical.core
   (:require [clojure.string :as s]
             [clojure.set]
-            [clojure.core.logic.pldb]
+            [clojure.core.logic.pldb :refer :all]
             [clojure.core.logic :refer :all]
             [clojure.core.logic.fd :as fd]))
 

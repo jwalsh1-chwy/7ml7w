@@ -51,9 +51,15 @@ echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
 #+RESULTS:
 * Book Club
 
+** Day 1
+
+Adding links here for reference:
+
 - https://calva.io/ : Clojure support in VSCode
 
 - http://danmidwood.com/content/2014/11/21/animated-paredit.html and https://calva.io/paredit/ : editor support for dealing with parenthesis
+
+- http://minikanren.org/#implementations : alternatives to core.logic
 
 - http://tca.github.io/veneer/editor.html : miniKanren in JavaScript
 
@@ -62,6 +68,8 @@ echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
 - https://www.youtube.com/watch?v=7kPMFkNm2dw : live coding core.logic
 
 - https://www.youtube.com/watch?v=rI8tNMsozo0 : easy vs. simplicity when thinking of code as trees
+
+- https://github.com/webyrd/Barliman : logic programming to support program synthesis (append) using example rather than implementation
 
 - https://youtu.be/MnrRUdbOW1M?t=694 : on introducing syntax, editors, and programming concepts as a pedagogical anti-pattern
 

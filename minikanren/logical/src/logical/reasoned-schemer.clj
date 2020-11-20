@@ -1,4 +1,4 @@
-(ns logical.reasoned-schemer
+(ns logical.reasoned_schemer
   (:require [clojure.string :as s]
             [clojure.set]
             [clojure.core.logic.pldb]
