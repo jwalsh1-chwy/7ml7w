@@ -1,6 +1,5 @@
 (ns logical.core
   (:require [clojure.string :as s]
-            [clojure.set]
             [clojure.core.logic.pldb :refer :all]
             [clojure.core.logic :refer :all]
             [clojure.core.logic.fd :as fd]))
@@ -9,7 +8,6 @@
   "miniKanren example"
   [& args]
   (println "miniKanren"))
-
 
 ;; Relations
 (quote
@@ -134,63 +132,57 @@
   ))
 
 ;; Databases
-(quote
- (
+(db-rel mano x)
+(db-rel womano x)
+(db-rel languageo p l)
+(db-rel vitalo p v)
+(db-rel turingo y)
+(db-rel systemo p m)
+(def facts
+  (db
+   [mano :alan-turing]
+   [womano :grace-hopper]
+   [mano :leslie-lamport]
+   [mano :alonzo-church]
+   [womano :ada-lovelace]
+   [womano :barbara-liskov]
+   [womano :frances-allen]
+   [mano :john-mccarthy]))
 
-  (db-rel mano x)
-  (db-rel womano x)
-  (db-rel languageo p l)
-  (db-rel vitalo p v)
-  (db-rel turingo y)
-  (db-rel systemo p m)
-  (def facts
-    (db
-     [mano :alan-turing]
-     [womano :grace-hopper]
-     [mano :leslie-lamport]
-     [mano :alonzo-church]
-     [womano :ada-lovelace]
-     [womano :barbara-liskov]
-     [womano :frances-allen]
-     [mano :john-mccarthy]))
+(with-db facts
+         (run* [q]
+               (womano q)))
 
-  (with-db facts
-    (run* [q]
-      (womano q)))
-
-  (def facts
-    (-> facts
-        (db-fact vitalo :alan-turing :dead)
-        (db-fact vitalo :grace-hopper :dead)
-        (db-fact vitalo :laverne-cox :alive)
-        (db-fact vitalo :leslie-lamport :alive)
-        (db-fact vitalo :alonzo-church :dead)
-        (db-fact vitalo :ada-lovelace :dead)
-        (db-fact vitalo :barbara-liskov :alive)
-        (db-fact vitalo :frances-allen :alive)
-        (db-fact vitalo :john-mccarthy :dead)
-        (db-fact turingo :leslie-lamport :2013)
-        (db-fact turingo :barbara-liskov :2008)
-        (db-fact turingo :john-mccarthy :1971)
-        (db-fact turingo :frances-allen :2006)
-        (db-fact languageo :alan-turing :turing)
-        (db-fact languageo :grace-hopper :cobol)
-        (db-fact languageo :grace-hopper :fortran)
-        (db-fact languageo :leslie-lamport :tla)
-        (db-fact languageo :alonzo-church :lambda-calculus)
-        (db-fact languageo :ada-lovalace :note-g)
-        (db-fact languageo :barbara-liskov :clu)
-        (db-fact languageo :frances-allen :fortran)
-        (db-fact languageo :frances-allen :autocoder)
-        (db-fact languageo :john-mccarthy :lisp)
-        (db-fact systemo :alan-turing :pilot-ace)
-        (db-fact systemo :alan-turing :bombe)
-        (db-fact systemo :alan-turing :turing-machine)
-        (db-fact systemo :grace-hopper :univac)
-        (db-fact systemo :ada-lovelace :analytical-engine)))
-
-  ))
-
+(def facts
+  (-> facts
+      (db-fact vitalo :alan-turing :dead)
+      (db-fact vitalo :grace-hopper :dead)
+      (db-fact vitalo :laverne-cox :alive)
+      (db-fact vitalo :leslie-lamport :alive)
+      (db-fact vitalo :alonzo-church :dead)
+      (db-fact vitalo :ada-lovelace :dead)
+      (db-fact vitalo :barbara-liskov :alive)
+      (db-fact vitalo :frances-allen :alive)
+      (db-fact vitalo :john-mccarthy :dead)
+      (db-fact turingo :leslie-lamport :2013)
+      (db-fact turingo :barbara-liskov :2008)
+      (db-fact turingo :john-mccarthy :1971)
+      (db-fact turingo :frances-allen :2006)
+      (db-fact languageo :alan-turing :turing)
+      (db-fact languageo :grace-hopper :cobol)
+      (db-fact languageo :grace-hopper :fortran)
+      (db-fact languageo :leslie-lamport :tla)
+      (db-fact languageo :alonzo-church :lambda-calculus)
+      (db-fact languageo :ada-lovalace :note-g)
+      (db-fact languageo :barbara-liskov :clu)
+      (db-fact languageo :frances-allen :fortran)
+      (db-fact languageo :frances-allen :autocoder)
+      (db-fact languageo :john-mccarthy :lisp)
+      (db-fact systemo :alan-turing :pilot-ace)
+      (db-fact systemo :alan-turing :bombe)
+      (db-fact systemo :alan-turing :turing-machine)
+      (db-fact systemo :grace-hopper :univac)
+      (db-fact systemo :ada-lovelace :analytical-engine)))
 
 (def pets-dogs
   #{

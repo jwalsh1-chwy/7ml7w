@@ -49,6 +49,40 @@ echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
 #+end_src
 
 #+RESULTS:
+* Getting Started
+
+#+begin_src sh
+brew cask install emacs intellij-idea pycharm visual-studio-code
+#+end_src
+
+** Emacs: Cider
+
+#+begin_src elisp
+(package-install cider)
+#+end_src
+
+[[emacs.png]]
+
+
+** IntelliJ: Cursive
+
+Install Cursive.
+
+[[intellij.png]]
+
+** Lighttable
+
+[[lighttable.png]]
+
+** PyCharm: Clojure-Kit
+
+[[pycharm.png]]
+
+** Visual Studio Code: Calva
+
+Install Calva.
+
+
 * Book Club
 
 ** Day 1
