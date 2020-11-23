@@ -114,11 +114,6 @@ Adding links here for reference:
 
 - https://www.uab.edu/news/research/item/10382-a-high-speed-dr-house-for-medical-breakthroughs : logic programming and diagnosis
 
+- https://www.amazon.com/Reasoned-Schemer-second-Daniel-Friedman-ebook/dp/B08BT1MJZV
 
-Calva and VSCode provide a nice interface to working through the
-examples (Calva: Start a Project REPL and Connect; ctrl-enter for any
-code snippet). If you're for additional detail on the nomenclature,
-https://www.amazon.com/Reasoned-Schemer-second-Daniel-Friedman-ebook/dp/B08BT1MJZV
-has the first couple of chapters available. Finally, an example of the "hunt to
-close parenthesis" can be seen at
-https://www.youtube.com/watch?v=aAlR3cezPJg&t=999s .
+- https://www.youtube.com/watch?v=aAlR3cezPJg&t=999s
