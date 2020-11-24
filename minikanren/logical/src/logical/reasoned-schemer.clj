@@ -1,13 +1,11 @@
 (ns logical.reasoned_schemer
-  (:require [clojure.string :as s]
-            [clojure.set]
+  (:require [clojure.set]
             [clojure.core.logic.pldb]
-            [clojure.core.logic :refer :all]
-            [clojure.core.logic.fd :as fd]))
+            [clojure.core.logic :refer :all]))
 
 (defn -main
   "Petstore example"
-  [& args]
+  [& _args]
   (println "The Reasoned Schemer"))
 
 
@@ -21,8 +19,6 @@ true
 ;; (run 1 [q]
 ;;   (succeed q)
 ;;   (== q true))
-
-
 
 ;; ((2. Teaching Old Toys New Tricks))
 
