@@ -33,9 +33,90 @@
 - SubstValue
 - Substitutions
 
+* Logic Programming
+
+** Facts
+
+*** Microshaft Personnel (SICP, 4.4.1)
+
+| address    | bitdiddle ben   | slumerville, ridge road |
+| job        | bitdiddle ben   | compute wizard          |
+| salary     | bitdiddle ben   | 60000                   |
+| address    | hacker alyssa p | cambridge, mass ave     |
+| job        | hacker alyssa p | computer programmer     |
+| salary     | hacker alyssa p |                         |
+| supervisor | hacker alyssa p | bitdiddle ben           |
+| address    | fect cy d       |                         |
+| job        | fect cy d       | computer programmer     |
+| salary     | fect cy d       |                         |
+| supervisor | fect cy d       | bitdiddle ben           |
+| address    | tweakit lem e   |                         |
+| job        | tweakit lem e   | computer technician     |
+| salary     | tweakit lem e   |                         |
+| supervisor | tweakit lem e   | bitdiddle ben           |
+
+*** Microshaft Jobs
+
+
+*** Greek Gods
+
+| parent | uranus     | cronus     |
+| parent | gaea       | cronus     |
+| parent | gaea       | rhea       |
+| parent | rhea       | zeus       |
+| parent | cronus     | zeus       |
+| parent | rhea       | hera       |
+| parent | cronus     | hera       |
+| parent | cronus     | hades      |
+| parent | rhea       | hades      |
+| parent | cronus     | hestia     |
+| parent | rhea       | hestia     |
+| parent | zeus       | hermes     |
+| parent | maia       | hermes     |
+| parent | zeus       | athena     |
+| parent | zeus       | ares       |
+| parent | hera       | ares       |
+| parent | zeus       | hephaestus |
+| parent | hera       | hephaestus |
+| parent | zeus       | apollo     |
+| parent | leto       | apollo     |
+| parent | zeus       | artemis    |
+| parent | leto       | artemis    |
+| parent | semele     | dionysius  |
+| parent | aphrodite  | harmonia   |
+| parent | ares       | harmonia   |
+| parent | harmonia   | semele     |
+| parent | demeter    | persephone |
+| female | gaea       |            |
+| female | rhea       |            |
+| female | hera       |            |
+| female | hestia     |            |
+| female | demeter    |            |
+| female | athena     |            |
+| female | metis      |            |
+| female | maia       |            |
+| female | persephone |            |
+| female | aphrodite  |            |
+| female | artemis    |            |
+| female | leto       |            |
+| male   | uranus     |            |
+| male   | cronus     |            |
+| male   | zeus       |            |
+| male   | hades      |            |
+| male   | hermes     |            |
+| male   | apollo     |            |
+| male   | dionysius  |            |
+| male   | hephaestus |            |
+| male   | poseidon   |            |
+
+*** Intervals
+
+*** Lists
+
 * The Reasoned Schemer
 
 - Run Geiser with Chez Scheme on the following:
+
 
 #+begin_src sh
 brew install chezscheme
@@ -49,6 +130,22 @@ echo '(run* q (*o (build-num 3) (build-num 4) q))' >> repl.scm
 #+end_src
 
 #+RESULTS:
+
+** Code (10. Under the Hood)
+
+   https://github.com/TheReasonedSchemer2ndEd/CodeFromTheReasonedSchemer2ndEd/blob/master/trs2-impl.scm
+
+*** ==
+
+*** fresh
+
+*** conde
+
+*** run
+
+*** run*
+
+*** defrel
 
 
 * Getting Started
@@ -71,7 +168,7 @@ Install Cursive.
 
 [[intellij.png]]
 
-** Lighttable
+** LightTable
 
 [[lighttable.png]]
 
@@ -82,7 +179,6 @@ Install Cursive.
 ** Visual Studio Code: Calva
 
 [[vscode.png]]
-
 
 * Book Club
 
