@@ -9,7 +9,7 @@ store_db [label = '5432:Postgres'];
 store_proxy [label = '3002:Spring Boot:Java'];
 service_a_user [label = '3003:Spring Boot:Java'];
 service_b_user [label = '3004:Spring Boot:Java'];
-service_a_pet [label = '3005Express:TypeScript'];
+service_a_pet [label = '3005:Express:TypeScript'];
 
 store_ios -> store_api;
 store_android -> store_api;
