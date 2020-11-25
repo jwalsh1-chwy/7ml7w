@@ -1,0 +1,24 @@
+* System Example
+
+#+begin_src dot
+store_ios [label = 'iOS:Swift'];
+store_android [label = 'Android:Kotlin'];
+store_web [label = '3000:React:TypeScript'];
+store_api [label = '3001:Django:Python'];
+store_db [label = '5432:Postgres'];
+store_proxy [label = '3002:Spring Boot:Java'];
+service_a_user [label = '3003:Spring Boot:Java'];
+service_b_user [label = '3004:Spring Boot:Java'];
+service_a_pet [label = '3005Express:TypeScript'];
+
+store_ios -> store_api;
+store_android -> store_api;
+store_web -> store_api;
+store_api -> {
+store_db;
+store_proxy -> {
+service_a_user -> service_b_user;
+service_a_pet;
+}
+}
+#+end_src
