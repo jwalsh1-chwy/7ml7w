@@ -1,5 +1,6 @@
-minikanren/logical/.lein-repl-history
-minikanren/logical/target/
+.lein-repl-history
+target/
 elixir/deps/
 julia/.ipynb_checkpoints/
 julia/data/
+.calva/
