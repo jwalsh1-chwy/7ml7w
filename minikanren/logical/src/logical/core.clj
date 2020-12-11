@@ -150,7 +150,6 @@
   ))
 
 ;; Databases
-<<<<<<< Updated upstream
 (db-rel mano x)
 (db-rel womano x)
 (db-rel languageo p l)
@@ -203,10 +202,9 @@
       (db-fact systemo :alan-turing :turing-machine)
       (db-fact systemo :grace-hopper :univac)
       (db-fact systemo :ada-lovelace :analytical-engine)))
-=======
+
 (quote
  (
-
   (db-rel mano x)
   (db-rel womano x)
   (db-rel languageo p l)
